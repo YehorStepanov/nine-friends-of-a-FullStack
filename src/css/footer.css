@@ -1,0 +1,131 @@
+.footer {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background: #060307;
+}
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  min-width: 84px;
+}
+.footer-logo-img {
+  fill: #764191;
+}
+.footer-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.footer-link-item {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: #fff;
+}
+.footer-link-item:hover,
+.footer-link-item:focus {
+  color: #764191;
+}
+.footer-contacts {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 24px;
+  padding-bottom: 16px;
+}
+.footer-contacts-list {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.footer-social-img {
+  fill: #fff;
+  transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer-social-img:hover,
+.footer-social-img:focus {
+  fill: #764191;
+}
+.footer-copy {
+  display: flex;
+  justify-content: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .footer-logo-img {
+    width: 116px;
+    height: 45px;
+  }
+
+  .footer-link-list {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+
+  .footer-link-item {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .footer-contacts {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 32px;
+    padding-bottom: 0px;
+  }
+
+  .footer-contacts-list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+  .footer-social-img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+  }
+
+  .footer-copy {
+    display: flex;
+    justify-content: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer-social-img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0;
+  }
+}
