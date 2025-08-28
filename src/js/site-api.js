@@ -2,14 +2,19 @@
 
 import axios from 'axios';
 
-const ARTISTS_LIST_URL = `https://sound-wave.b.goit.study/api/artists?limit=8&page=`;
+axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api/';
 
-export async function getArtistsList(artistsPage = 1) {
+export async function getArtistsList(page = 1) {
   try {
-    const response = await axios.get(`${ARTISTS_LIST_URL}${artistsPage}`);
-
-    return response.data;
+    const { data } = await axios.get('artists', {
+      params: {
+        limit: 8,
+        page,
+      },
+    });
+    return data;
   } catch (error) {
-    console.error('Error');
+    console.error('Error fetching artists:', error.message);
+    throw error;
   }
 }
