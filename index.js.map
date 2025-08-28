@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/js/refs.js"],"sourcesContent":["export default {\n  exampele: document.querySelector('.exampele'), //Це приклад як додавати, не видаляйте\n};\n"],"names":[],"mappings":"ssBACY,SAAS,cAAc,WAAW"}
