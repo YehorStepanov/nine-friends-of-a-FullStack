@@ -1,0 +1,97 @@
+/* !TITLES */
+.artists-section {
+  font-family: var(--font-family);
+  background-color: var(--color-neutral-darkest);
+  color: var(--color-scheme-1-text);
+  padding: 64px 0;
+}
+
+.artists__sub-title {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.artists__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* *TITLES END */
+
+/* !ARTISTS LIST */
+.artists__list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1440px) {
+  .artists__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .artists__item {
+    width: calc((100% - 32px) / 2);
+  }
+}
+
+.artists__item {
+}
+
+.artists__image {
+  margin-bottom: 24px;
+  border-radius: 16px;
+  width: 100%;
+  height: 177px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .artists__image {
+    height: 432px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .artists__image {
+    height: 393px;
+  }
+}
+
+.artists__genre-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.artists__genre-item {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.artists__title-name {
+}
+
+.artists__text-biography {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.artists__more-btn {
+}
+
+.artists__load-btn {
+  display: flex;
+}
+
+.artists__load-btn.hidden {
+  display: none;
+}
+/* *ARTISTS LIST END */
