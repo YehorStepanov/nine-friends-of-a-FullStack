@@ -3,14 +3,12 @@
 import { getArtistsList } from './site-api';
 import refs from './refs';
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
-
-let page = 1;
+import { showLoader, hideLoader } from './loader';
 
 async function createArtistsList(page) {
   try {
     const data = await getArtistsList(page);
-
+    showLoader();
     const markup = data.artists
       .map(
         item => `
@@ -37,6 +35,7 @@ async function createArtistsList(page) {
       .join('');
 
     refs.artistsList.innerHTML = markup;
+    hideLoader();
     return data;
   } catch (error) {
     console.error('Error in createArtistsList:', error);
@@ -46,21 +45,34 @@ async function createArtistsList(page) {
 const paginationEl = document.getElementById('pagination');
 let pagination = null;
 
-async function init() {
+async function initPagination() {
   const firstData = await createArtistsList(1);
 
   pagination = new Pagination(paginationEl, {
     totalItems: firstData.totalArtists,
     itemsPerPage: firstData.limit,
     visiblePages: 5,
-    page: 1,
     centerAlign: true,
+    template: {
+      page: '<a href="#" class="custom-page-btn">{{page}}</a>',
+      currentPage: '<strong class="custom-current">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="custom-move-btn tui-{{type}}">' +
+        '<span class="icon-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="custom-move-btn disabled custom-{{type}}">' +
+        '<span class="icon-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton: '<a href="#" class="custom-ellip">...</a>',
+    },
   });
 
   pagination.on('afterMove', async event => {
     const currentPage = event.page;
+    showLoader();
     await createArtistsList(currentPage);
   });
 }
 
-init();
+initPagination();

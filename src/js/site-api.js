@@ -12,8 +12,6 @@ export async function getArtistsList(page = 1) {
         page,
       },
     });
-    console.log(data);
-    
     return data;
   } catch (error) {
     console.error('Error fetching artists:', error.message);
