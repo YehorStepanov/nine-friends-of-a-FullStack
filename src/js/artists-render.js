@@ -2,6 +2,8 @@
 
 import { getArtistsList } from './site-api';
 import refs from './refs';
+import Pagination from 'tui-pagination';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 let page = 1;
 
@@ -15,7 +17,7 @@ async function createArtistsList(page) {
           <li class="artists__item">
             <img class="artists__image" src="${item.strArtistThumb}" alt="${
           item.strArtist
-        }">
+        }" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
             <ul class="artists__genre-list">
               ${item.genres
                 .map(g => `<li class="artists__genre-item">${g}</li>`)
@@ -23,37 +25,42 @@ async function createArtistsList(page) {
             </ul>
             <h3 class="artists__title-name">${item.strArtist}</h3>
             <p class="artists__text-biography">${item.strBiographyEN}</p>
-            <button class="artists__more-btn" data-artists-id="${
-              item._id
-            }">Learn More <svg class="artists-more__caret"><use href='/img/sprite.svg#icon-caret-right'></use></svg></button>
+            <button class="artists__more-btn" data-artists-id="${item._id}">
+              Learn More 
+              <svg class="artists-more__caret">
+                <use href='/img/sprite.svg#icon-caret-right'></use>
+              </svg>
+            </button>
           </li>
         `
       )
       .join('');
 
-    refs.artistsList.insertAdjacentHTML('beforeend', markup);
-
-    if (data.totalArtists > page * data.limit) {
-      showLoadMoreButton();
-    } else {
-      hideLoadMoreButton();
-    }
+    refs.artistsList.innerHTML = markup;
+    return data;
   } catch (error) {
     console.error('Error in createArtistsList:', error);
   }
 }
 
-createArtistsList(page);
+const paginationEl = document.getElementById('pagination');
+let pagination = null;
 
-refs.artistsLoadButton.addEventListener('click', () => {
-  page += 1;
-  createArtistsList(page);
-});
+async function init() {
+  const firstData = await createArtistsList(1);
 
-function showLoadMoreButton() {
-  refs.artistsLoadButton.classList.remove('hidden');
+  pagination = new Pagination(paginationEl, {
+    totalItems: firstData.totalArtists,
+    itemsPerPage: firstData.limit,
+    visiblePages: 5,
+    page: 1,
+    centerAlign: true,
+  });
+
+  pagination.on('afterMove', async event => {
+    const currentPage = event.page;
+    await createArtistsList(currentPage);
+  });
 }
 
-function hideLoadMoreButton() {
-  refs.artistsLoadButton.classList.add('hidden');
-}
+init();
