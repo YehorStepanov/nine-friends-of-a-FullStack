@@ -8,7 +8,7 @@ import { showLoader, hideLoader } from './loader';
 async function createArtistsList(page) {
   try {
     const data = await getArtistsList(page);
-    showLoader();
+    showLoader('artists__loader');
     const markup = data.artists
       .map(
         item => `
@@ -35,7 +35,7 @@ async function createArtistsList(page) {
       .join('');
 
     refs.artistsList.innerHTML = markup;
-    hideLoader();
+    hideLoader('artists__loader');
     return data;
   } catch (error) {
     console.error('Error in createArtistsList:', error);
@@ -70,7 +70,7 @@ async function initPagination() {
 
   pagination.on('afterMove', async event => {
     const currentPage = event.page;
-    showLoader();
+    showLoader('artists__loader');
     await createArtistsList(currentPage);
   });
 }

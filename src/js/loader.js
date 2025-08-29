@@ -1,9 +1,9 @@
 'use strict';
 
-export function showLoader() {
-  document.querySelector('.loader').classList.remove('hidden');
+export function showLoader(id) {
+  document.getElementById(id).classList.remove('hidden');
 }
 
-export function hideLoader() {
-  document.querySelector('.loader').classList.add('hidden');
+export function hideLoader(id) {
+  document.getElementById(id).classList.add('hidden');
 }
