@@ -25,7 +25,7 @@ async function createArtistsList(page) {
             <p class="artists__text-biography">${item.strBiographyEN}</p>
             <button class="artists__more-btn" data-artists-id="${
               item._id
-            }">Learn More</button>
+            }">Learn More <svg class="artists-more__caret"><use href='/img/sprite.svg#icon-caret-right'></use></svg></button>
           </li>
         `
       )
