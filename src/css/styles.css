@@ -10,5 +10,6 @@
 @import url('./container.css');
 
 /* Sections style */
+@import url('./hero.css');
 @import url('./footer.css');
 @import url('./artists.css');
