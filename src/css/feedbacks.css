@@ -22,6 +22,10 @@
     height: 100%;
 }
 
+.swiper .swiper-wrapper {
+    margin-bottom: 16px;
+}
+
 .swiper .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -73,7 +77,7 @@
 }
 
 .swiper .swiper-pagination-bullet-active {
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .swiper .swiper-pagination-bullet-active-prev,
@@ -84,6 +88,19 @@
 .swiper .swiper-button-prev,
 .swiper .swiper-button-next {
     display: none;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: var(--color-neutral-light);
+    cursor: pointer;
+}
+
+.swiper-pagination .swiper-pagination-bullet.active {
+    background-color: var(--color-white);
+    opacity: 0.8;
 }
 
 @media screen and (min-width: 768px) {
@@ -106,21 +123,29 @@
         padding: 12px;
         width: 48px;
         height: 48px;
-        background-color: #060307;
+        background-color: var(--color-neutral-darkest);
         top: var(--swiper-navigation-top-offset, 50%);
-        transition: background-color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: border 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .swiper .swiper-button-prev:focus,
     .swiper .swiper-button-next:focus,
     .swiper .swiper-button-prev:hover,
     .swiper .swiper-button-next:hover {
-        background-color: var(--color-neutral-darker);
+        border-color: var(--color-affair);
     }
 
     .icon-arrow {
         background-color: transparent;
-        fill: white;
+        fill: var(--color-white);
+        transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .swiper-button-prev:focus svg,
+    .swiper-button-next:focus svg,
+    .swiper-button-prev:hover svg,
+    .swiper-button-next:hover svg {
+        fill: var(--color-affair);
     }
 
     .swiper .swiper-button-next:after,
@@ -132,6 +157,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .swiper .swiper-wrapper {
+        margin-bottom: 50px;
+    }
+
     .swiper .swiper-slide {
         padding: 50px 223px 59px 223px;
     }
