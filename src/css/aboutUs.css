@@ -1,51 +1,87 @@
-.svg {
-    filter:  invert(1);
- /* margin-bottom: 20px; */
-
-}
 .aboutUs-section {
-    background-color: rgb(160, 134, 134);
-   /* padding: 64px 16px; */
-   padding-top: 64px;
-width: 320px;
-height: 716px;
-display: flex;
-align-items: flex-start;
-justify-content: flex-start;
-flex-direction: column;
-gap: 48px;
+    background-color: var(--color-neutral-darkest);
+    padding: 0;
 }
-.aboutUs-title {
-    color: aliceblue;
-}
-.aboutUs-picture {
 
+.aboutUs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 64px 16px;
 }
+
 .aboutUs-img {
-    padding-bottom: 48px;
+    width: 100%;
+    border-radius: 16px;
 }
-.aboutUs-logo {
-    padding-bottom: 20px;
-}
-.aboutUs-title {
-    font-family: "Epilogue", sans-serif;
-font-weight: 700;
-font-size: 44px;
-padding-top: 20px;
-/* line-height: 53px; */ 
-line-height: 120%;
-letter-spacing: -0.01em;
-color: #fff;
-}
-.aboutUs-paragraph {
-font-family: "IBM Plex Sans", sans-serif;
-font-weight: 400;
-font-size: 18px;
 
-/* line-height: 27px; */ 
-line-height: 150%;
-color: #fff;
+.aboutUs-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-/* .aboutUs-link {
-    padding-bottom: 20px;
-} */
+
+.aboutUs-icon {
+    filter: invert(1);
+    margin-bottom: 20px;
+}
+
+.aboutUs-title {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.aboutUs-paragraph {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+    .aboutUs-container {
+        gap: 24px;
+        padding: 64px 32px;
+    }
+
+    .aboutUs-title {
+        font-size: 44px;
+    }
+
+    .aboutUs-paragraph {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .aboutUs-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 32px;
+        padding: 112px 64px;
+    }
+
+    .aboutUs-icon {
+        filter: invert(1);
+        margin-bottom: 24px;
+    }
+
+    .aboutUs-picture,
+    .aboutUs-content {
+        flex: 1;
+    }
+
+    .aboutUs-title {
+        font-size: 60px;
+    }
+
+    .aboutUs-paragraph {
+        font-size: 20px;
+    }
+}
