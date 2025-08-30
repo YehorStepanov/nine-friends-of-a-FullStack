@@ -81,7 +81,7 @@ function Z(t){const{strTrack:e,intDuration:r,movie:a}=t,s=et(a),i=N(r);return`<l
 `)}//! ============================================================================
 function et(t){return G(t)?`<a href="${t}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
                           <svg class="artist-tracks__item-icon" width="21" height="15">
-                            <use href="./img/sprite.svg#icon-Youtube"></use>
+                            <use href="/img/sprite.svg#icon-Youtube"></use>
                           </svg>
                       </a>`:""}//! ============================================================================
 const st=()=>{c.artistModalLoaderEl.classList.add("modal-loader-visible")},rt=()=>{c.artistModalLoaderEl.classList.remove("modal-loader-visible")},n=l.artistModalElems;let _=0;//! ============================================================================
