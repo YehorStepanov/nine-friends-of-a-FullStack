@@ -47,7 +47,7 @@ body.scroll-lock {
   font-weight: 400;
   font-family: var(--second-family);
   color: var(--color-white);
-  background-color: var(--color-neutral-darkest);
+  background-color: var(--color-neutral-darker-2);
   border-radius: 16px;
   max-height: 90vh;
   min-height: 90vh;
