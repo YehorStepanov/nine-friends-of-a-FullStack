@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/seven-friends-of-a-FullStack/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-BkCUij8E.js">
-    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-DkeBYJ7Z.css">
+    <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-BLciYDKo.js">
+    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-tb9sgZjx.css">
   </head>
   <body>
     <header class="header">
@@ -35,7 +35,10 @@
     <h2 class="artists__title">Artists</h2>
     <p class="artists__sub-title">Explore Your New Favorite Artists</p>
     <ul class="artists__list"></ul>
-    <button class="artists__load-btn">Load More</button>
+    <div class="artists__loader">
+      <span id="artists__loader" class="loader"></span>
+    </div>
+    <div id="pagination" class="tui-pagination"></div>
   </div>
 </section>
 
