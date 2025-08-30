@@ -9,6 +9,7 @@ import {
   showErrorMessage,
 } from './artist-modal-helpers';
 import refs from '../refs';
+import spriteUrl from '/img/sprite.svg';
 
 const modalRefs = refs.artistModalElems;
 
@@ -208,7 +209,7 @@ function movieTemplate(movie) {
 
   const markup = `<a href="${movie}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
                           <svg class="artist-tracks__item-icon" width="21" height="15">
-                            <use href="/img/sprite.svg#icon-Youtube"></use>
+                            <use href="${spriteUrl}#icon-Youtube"></use>
                           </svg>
                       </a>`;
   return markup;

@@ -136,7 +136,7 @@ export function showErrorMessage(text) {
       if (closeBtn) {
         closeBtn.innerHTML = `
           <svg class="toast-close-icon" width="16" height="16">
-            <use xlink:href="${spriteUrl}#icon-toast-close"></use>
+            <use href="${spriteUrl}#icon-toast-close"></use>
           </svg>
         `;
       }
