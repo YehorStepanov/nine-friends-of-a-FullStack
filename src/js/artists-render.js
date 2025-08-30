@@ -38,6 +38,7 @@ async function createArtistsList(page) {
     hideLoader('artists__loader');
     return data;
   } catch (error) {
+    hideLoader('artists__loader');
     console.error('Error in createArtistsList:', error);
   }
 }
