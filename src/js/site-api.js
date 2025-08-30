@@ -18,3 +18,16 @@ export async function getArtistsList(page = 1) {
     throw error;
   }
 }
+export async function getFeedbacks() {
+  try {
+    const response = await axios.get('/feedbacks', { params: {
+        limit: 10,
+        page: 1,
+        }
+    });
+    const feedbacksArray = response.data.data;    
+    return feedbacksArray;
+  } catch {
+    console.log('Error fetching feedbacks');    
+  }
+} 
