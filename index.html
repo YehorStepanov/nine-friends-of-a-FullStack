@@ -18,8 +18,9 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/seven-friends-of-a-FullStack/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-BLciYDKo.js">
-    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-tb9sgZjx.css">
+    <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-Cir5bjeI.js">
+    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-DnveWo0P.css">
+    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-B18VthZe.css">
   </head>
   <body>
     <header class="header">
@@ -34,7 +35,7 @@
   <div class="container">
     <h2 class="artists__title">Artists</h2>
     <p class="artists__sub-title">Explore Your New Favorite Artists</p>
-    <ul class="artists__list"></ul>
+    <ul class="artists__list js-artists-list"></ul>
     <div class="artists__loader">
       <span id="artists__loader" class="loader"></span>
     </div>
@@ -49,7 +50,7 @@
   <div class="container">
     <a href="./index.html" class="footer-logo">
       <svg class="footer-logo-img" width="106" height="30">
-        <use href="/seven-friends-of-a-FullStack/assets/sprite-CjGyNKP_.svg#footer-logo"></use>
+        <use href="/seven-friends-of-a-FullStack/assets/sprite-mTqa9sFe.svg#footer-logo"></use>
       </svg>
     </a>
     <div class="footer-nav">
@@ -64,19 +65,19 @@
         <li class="footer-contacts-item">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><svg class="footer-social-img"
               width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CjGyNKP_.svg#icon-Instagram"></use>
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-mTqa9sFe.svg#icon-Instagram"></use>
             </svg></a>
         </li>
         <li class="footer-contacts-item#">
           <a href="https://www.facebook.com/ " target="_blank" rel="noopener noreferrer"><svg class="footer-social-img"
               width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CjGyNKP_.svg#icon-Facebook"></use>
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-mTqa9sFe.svg#icon-Facebook"></use>
             </svg></a>
         </li>
         <li class="footer-contacts-item">
           <a href=" https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><svg class="footer-social-img"
               width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CjGyNKP_.svg#icon-Youtube"></use>
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-mTqa9sFe.svg#icon-Youtube"></use>
             </svg></a>
         </li>
       </ul>
@@ -84,6 +85,26 @@
     </div>
   </div>
 </footer>
-    
+    <div class="artist-modal js-artist-modal">
+  <div class="contain artist-modal__container">
+    <div class="artist-modal__content">
+      <button
+        class="artist-modal__close-btn"
+        type="button"
+        data-artist-modal-close
+        aria-label="Close modal"
+      >
+        <svg class="artist-modal__close-icon" width="32" height="32">
+          <use href="../img/sprite.svg#icon-artist-modal-close-icon"></use>
+        </svg>
+      </button>
+      <span class="artist-modal__loader js-artist-modal-loader"></span>
+      <div class="artist-modal__body js-artist-modal-body">
+        <div class="artist-modal__inner js-artist-modal-inner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
