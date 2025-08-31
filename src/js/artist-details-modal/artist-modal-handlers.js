@@ -8,10 +8,10 @@ let scrollY = 0;
 // Artist About Button Click Handler
 //! ============================================================================
 export const handleAboutArtistBtnClick = e => {
-  const isTargetEl = e.target.classList.contains('js-artist-more-btn');
-  if (!isTargetEl) return;
+  const targetEl = e.target.closest('.js-artist-more-btn');
+  if (!targetEl) return;
 
-  renderArtistModal(e.target.dataset.artistsId);
+  renderArtistModal(targetEl.dataset.artistsId);
 };
 
 // Modal Handlers
