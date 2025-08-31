@@ -62,7 +62,8 @@
 .artist-tracks__header,
 .artist-tracks__item {
   display: grid;
-  grid-template-columns: 97px 74px 24px;
+  grid-template-columns: 97px 64px 24px;
+  scrollbar-gutter: stable both-edges;
   gap: 16px;
   grid-template-areas: 'track duration link';
   align-items: center;
@@ -135,9 +136,13 @@
   .artist-album {
     width: calc((100% - 96px) / 4);
   }
+  .artist-tracks__header,
+  .artist-tracks__item {
+    grid-template-columns: 97px 74px 24px;
+  }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1339px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
   .artist-tracks__header {
     padding: 4px 10px 4px 12px;
   }

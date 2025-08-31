@@ -18,7 +18,12 @@ export const handleAboutArtistBtnClick = e => {
 //! ============================================================================
 export function openArtistModal() {
   scrollY = window.scrollY;
+
+  document.body.style.position = 'fixed';
   document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
   document.body.classList.add('scroll-lock');
 
   modalRefs.artistModalEl.classList.add('artist-modal--is-open');
@@ -33,10 +38,14 @@ export function openArtistModal() {
 
 export function closeArtistModal() {
   modalRefs.artistModalEl.classList.remove('artist-modal--is-open');
+
   document.body.classList.remove('scroll-lock');
-  const y = Math.abs(parseInt(document.body.style.top || '0', 10));
+  document.body.style.position = '';
   document.body.style.top = '';
-  window.scrollTo(0, y);
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollY);
 
   modalRefs.artistModalInnerEl.innerHTML = '';
 
