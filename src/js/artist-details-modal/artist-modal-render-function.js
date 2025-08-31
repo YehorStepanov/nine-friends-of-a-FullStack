@@ -9,6 +9,7 @@ import {
   showErrorMessage,
 } from './artist-modal-helpers';
 import refs from '../refs';
+import sprite from '../../img/sprite.svg';
 
 const modalRefs = refs.artistModalElems;
 
@@ -40,7 +41,7 @@ export async function renderArtistModal(id) {
 //! ============================================================================
 
 /** Returns markup for artist about section */
-const aboutArtistTemplate = item => {
+const aboutArtistTemplate = (item) => {
   const {
     strArtist,
     strArtistThumb,
@@ -113,8 +114,7 @@ function createArtistInfoList(items) {
 //! ============================================================================
 
 /** Returns markup for one genre item */
-const musicGenreTemplate = genre =>
-  `<li class="about-artist__music-genre">${genre}</li>`;
+const musicGenreTemplate = (genre) => `<li class="about-artist__music-genre">${genre}</li>`;
 
 /** Builds genres list markup */
 function createMusicGenresList(items) {
@@ -127,7 +127,7 @@ function createMusicGenresList(items) {
 //! ============================================================================
 
 /** Inserts artist about section into modal */
-const createArtistAbout = artist => {
+const createArtistAbout = (artist) => {
   const markup = aboutArtistTemplate(artist);
   modalRefs.artistModalInnerEl.insertAdjacentHTML('afterbegin', markup);
 };
@@ -136,7 +136,7 @@ const createArtistAbout = artist => {
 //! ============================================================================
 
 /** Inserts artist albums section into modal */
-const createArtistAlbums = artist => {
+const createArtistAlbums = (artist) => {
   const markup = artistAlbumListTemplate(artist);
   modalRefs.artistModalInnerEl.insertAdjacentHTML('beforeend', markup);
 };
@@ -208,7 +208,7 @@ function movieTemplate(movie) {
 
   const markup = `<a href="${movie}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
                           <svg class="artist-tracks__item-icon" width="21" height="15">
-                            <use href="/img/sprite.svg#icon-Youtube"></use>
+                            <use href="${sprite}#icon-Youtube"></use>
                           </svg>
                       </a>`;
   return markup;
