@@ -1,9 +1,9 @@
-import{a as m,P as x,i as S}from"./assets/vendor-Cir5bjeI.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const i of s)if(i.type==="childList")for(const o of i.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function r(s){const i={};return s.integrity&&(i.integrity=s.integrity),s.referrerPolicy&&(i.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?i.credentials="include":s.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(s){if(s.ep)return;s.ep=!0;const i=r(s);fetch(s.href,i)}})();const c={exampele:document.querySelector(".exampele"),artistsList:document.querySelector(".artists__list"),artistsLoadButton:document.querySelector(".artists__load-btn"),artistModalElems:{artistModalEl:document.querySelector(".js-artist-modal"),closeArtistModalBtnEl:document.querySelector("[data-artist-modal-close]"),artistModalInnerEl:document.querySelector(".js-artist-modal-inner"),artistModalBodyEl:document.querySelector(".js-artist-modal-body"),artistModalLoaderEl:document.querySelector(".js-artist-modal-loader")}};m.defaults.baseURL="https://sound-wave.b.goit.study/api/";async function j(t=1){try{const{data:e}=await m.get("artists",{params:{limit:8,page:t}});return e}catch(e){throw console.error("Error fetching artists:",e.message),e}}//! ============================================================================
-const I=async t=>(await m.get(`artists/${t}/albums`)).data,l="/seven-friends-of-a-FullStack/assets/sprite-mTqa9sFe.svg";function y(t){document.getElementById(t).classList.remove("hidden")}function f(t){document.getElementById(t).classList.add("hidden")}async function h(t){try{const e=await j(t);y("artists__loader");const r=e.artists.map(a=>`
+import{a as d,P as S,i as f,R as I,S as R,N,b as j}from"./assets/vendor-Bttng-cq.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))a(r);new MutationObserver(r=>{for(const i of r)if(i.type==="childList")for(const n of i.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&a(n)}).observe(document,{childList:!0,subtree:!0});function s(r){const i={};return r.integrity&&(i.integrity=r.integrity),r.referrerPolicy&&(i.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?i.credentials="include":r.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(r){if(r.ep)return;r.ep=!0;const i=s(r);fetch(r.href,i)}})();const l={exampele:document.querySelector(".exampele"),artistsList:document.querySelector(".artists__list"),artistsLoadButton:document.querySelector(".artists__load-btn"),swiperWrapper:document.querySelector(".swiper-wrapper"),swiperBtnPrev:document.querySelector(".swiper-button-prev"),swiperBtnNext:document.querySelector(".swiper-button-next"),artistModalElems:{artistModalEl:document.querySelector(".js-artist-modal"),closeArtistModalBtnEl:document.querySelector("[data-artist-modal-close]"),artistModalInnerEl:document.querySelector(".js-artist-modal-inner"),artistModalBodyEl:document.querySelector(".js-artist-modal-body"),artistModalLoaderEl:document.querySelector(".js-artist-modal-loader")}};d.defaults.baseURL="https://sound-wave.b.goit.study/api/";async function C(t=1){try{const{data:e}=await d.get("artists",{params:{limit:8,page:t}});return e}catch(e){throw console.error("Error fetching artists:",e.message),e}}//! ============================================================================
+const Q=async t=>(await d.get(`artists/${t}/albums`)).data;async function U(){try{return(await d.get("feedbacks",{params:{limit:10,page:1}})).data.data}catch(t){console.log("Error fetching feedbacks",t)}}const u="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg";function A(t){document.getElementById(t).classList.remove("hidden")}function c(t){document.getElementById(t).classList.add("hidden")}async function b(t){try{const e=await C(t);A("artists__loader");const s=e.artists.map(a=>`
           <li class="artists__item">
             <img class="artists__image" src="${a.strArtistThumb}" alt="${a.strArtist}" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
             <ul class="artists__genre-list">
-              ${a.genres.map(s=>`<li class="artists__genre-item">${s}</li>`).join("")}
+              ${a.genres.map(r=>`<li class="artists__genre-item">${r}</li>`).join("")}
             </ul>
             <h3 class="artists__title-name">${a.strArtist}</h3>
             <p class="artists__text-biography">${a.strBiographyEN}</p>
@@ -11,56 +11,64 @@ const I=async t=>(await m.get(`artists/${t}/albums`)).data,l="/seven-friends-of-
             <button class="artists__more-btn js-artist-more-btn" data-artists-id="${a._id}">
               Learn More 
               <svg class="artists-more__caret">
-                <use href='${l}#icon-caret-right'></use>
+                <use href='${u}#icon-caret-right'></use>
               </svg>
             </button>
           </li>
-        `).join("");return c.artistsList.innerHTML=r,f("artists__loader"),e}catch(e){f("artists__loader"),console.error("Error in createArtistsList:",e)}}const q=document.getElementById("pagination");let g=null;async function C(){const t=await h(1);g=new x(q,{totalItems:t.totalArtists,itemsPerPage:t.limit,visiblePages:5,centerAlign:!0,template:{page:'<a href="#" class="custom-page-btn">{{page}}</a>',currentPage:'<strong class="custom-current">{{page}}</strong>',moveButton:'<a href="#" class="custom-move-btn tui-{{type}}"><span class="icon-{{type}}">{{type}}</span></a>',disabledMoveButton:'<span class="custom-move-btn disabled custom-{{type}}"><span class="icon-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="custom-ellip">...</a>'}}),g.on("afterMove",async e=>{const r=e.page;y("artists__loader"),await h(r)})}C();let b;//! ============================================================================
-const H=({intFormedYear:t,intDiedYear:e=""})=>{let r="—";const a=Number(t),s=Number(e);return a?e?s>=a&&(r=`${a}-${s}`):r=`${a}-present`:r="information missing",r},P=()=>window.matchMedia("(min-width: 1440px)").matches?5:window.matchMedia("(min-width: 768px)").matches?4:11,v=()=>{const t=document.querySelector(".about-artist__info-item--bio .about-artist__info-item-text");if(!t)return;t.dataset.fullText||(t.dataset.fullText=t.textContent.trim());const e=t.dataset.fullText;t.style.visibility="hidden";const r=parseFloat(getComputedStyle(t).lineHeight),a=P(),s=r*a;let i=e.split(" "),o=e;for(t.textContent=o;t.scrollHeight>s&&i.length>0;)i.pop(),o=i.join(" "),t.textContent=o+"...";t.style.maxHeight=`${s}px`,t.style.overflowY=t.scrollHeight>s?"auto":"hidden",t.style.visibility="visible"};function L(){clearTimeout(b),b=setTimeout(v,150)}//! ============================================================================
-function N(t){if(t==null)return"0:00";const e=Math.floor(t/1e3),r=Math.floor(e/60),a=e%60;return`${r}:${a.toString().padStart(2,"0")}`}function Y(t,e=!0){return t.reduce((r,a)=>{const s=a.tracks.filter(i=>{var o;return Number(i.intDuration)>0&&((o=i.strTrack)==null?void 0:o.trim())});return e&&s.length===0||r.push({...a,tracks:s}),r},[])}//! ============================================================================
-function G(t){if(typeof t!="string"||t.trim()==="")return!1;try{const e=new URL(t);return e.protocol==="http:"||e.protocol==="https:"}catch{return!1}}//! ============================================================================
-function z(t){S.error({message:t,position:"topRight",class:"custom-error-toast",timeout:5e3,onOpening:(e,r)=>{const a=r.querySelector(".iziToast-body");if(a){const i=document.createElement("span");i.classList.add("iziToast-icon"),i.innerHTML=`
+        `).join("");return l.artistsList.innerHTML=s,c("artists__loader"),e}catch(e){c("artists__loader"),console.error("Error in createArtistsList:",e)}}const P=document.getElementById("pagination");let h=null;async function q(){const t=await b(1);h=new S(P,{totalItems:t.totalArtists,itemsPerPage:t.limit,visiblePages:5,centerAlign:!0,template:{page:'<a href="#" class="custom-page-btn">{{page}}</a>',currentPage:'<strong class="custom-current">{{page}}</strong>',moveButton:'<a href="#" class="custom-move-btn tui-{{type}}"><span class="icon-{{type}}">{{type}}</span></a>',disabledMoveButton:'<span class="custom-move-btn disabled custom-{{type}}"><span class="icon-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="custom-ellip">...</a>'}}),h.on("afterMove",async e=>{const s=e.page;A("artists__loader"),await b(s)})}q();const H="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF2SURBVHgBpZQ/TsMwFMa/5/6Zww0CF6BsiIXAxkRvAJwgrYRQt7Zb1Q5Nb5AbUDYmkg7MHIEcgRlRm+eSIOePikk+KYr9bP9iv3zPgIUG3tLVj81cYQPrkog6JN647TQGdgCPXy4BThu4bQwkEuPfySRuGgHvvaWnd2eEemmsHhAVRyS0xvsWkNlJk+5w3hzJO2uReKxapJS8U0DyxU8QD5MckI8QCqJzbu5gqC2VQGHd5kQzLJenmiKXz9sXQskL7iVorkSzxIxz8KnkCftjjfraaIZm5X7Kw+VqwnkY/4ekFFaL2B9k/ZY5+Pr+HJ8dXR3wV05hI4Upw0ZmqORDkjKG7e4gk2KsBGT/9WGv3p9AttExLMV1fr0XmN55vYq1G66Mp4q4W7zScsBuGbbz1jzyvUXk93XJoeDZTiFFOaD6ufu0Ptj109RbcTa+iIchww/1WBajQpW1zQ57KNgq/ZbBLMoXvan5iz8Z8R2whRjwmtAc+wa4Q3bUdA0IrQAAAABJRU5ErkJggg==",O="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADjSURBVHgBrZQNDYMwEIWvU4CEOtgcjCkYEpiTSpiEOQAHw8EkUAeTcHsXSgKM/kD5khcIbT9KW44oAWbWEjoCJ+uRL1LE+p8oToloRGQ15eJmN/KhHCAo+Z+S9oLBrxXhOzRGLQSyTmM00njGPRArUUrZmVBmget1ItqLRVoR9m42R2Dl2NycPVvmXMPaIQ3vp+O1Q4+HhrfzDM5bOmyQmeX4tV+vo23rFhVWlM4lRXimdO7BVh5KlW8XW09bERJWi849T4oB7mueVx+hDgnHHZZianxv5/nxMhT5ZJFqiuDr+wPMSqqKNMf6xQAAAABJRU5ErkJggg==";async function Y(){let t=[];try{const e=await U();A("feedbacks-loader"),e&&Array.isArray(e)?t=e:t=[]}catch{c("feedbacks-loader"),f.error({message:"Network error"});return}if(t.length===0){c("feedbacks-loader"),f.error({message:"Nothing to show. Please, try again later."});return}G(t),V(t.length),z()}Y();function G(t){const e=t.map(X).join("");l.swiperWrapper.innerHTML=e}function X({name:t,descr:e,rating:s}){return`<div class="swiper-slide">
+        <div class="stars" data-raty data-score="${Math.round(s)}" data-read-only="true"></div>
+        <p class="feedback-content">${e}</p>
+        <p class="feedback-name">${t}</p>
+        </div>`}function z(){document.querySelectorAll("[data-raty]").forEach(t=>{new I(t,{starOn:H,starOff:O,score:parseInt(t.dataset.score,10),readOnly:!0}).init()})}function V(t){const s=t-1,a=Math.floor(t/2),r=new R(".mySwiper",{modules:[N,j],pagination:{el:".swiper-pagination",type:"custom",renderCustom:i=>{let n;return i.activeIndex===0?n=0:i.activeIndex===s?n=s:n=a,`
+                    <span class="swiper-pagination-bullet${n===0?" active":""}" data-i="0"></span>
+                    <span class="swiper-pagination-bullet${n===a?" active":""}" data-i="${a}"></span>
+                    <span class="swiper-pagination-bullet${n===s?" active":""}" data-i="${s}"></span>
+                    `}},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}});l.swiperBtnPrev.classList.remove("visually-hidden"),l.swiperBtnNext.classList.remove("visually-hidden"),c("feedbacks-loader"),r.pagination.el.addEventListener("click",i=>{if(!i.target.classList.contains("swiper-pagination-bullet"))return;const n=parseInt(i.target.dataset.i,10);r.slideTo(n)})}let y;//! ============================================================================
+const D=({intFormedYear:t,intDiedYear:e=""})=>{let s="—";const a=Number(t),r=Number(e);return a?e?r>=a&&(s=`${a}-${r}`):s=`${a}-present`:s="information missing",s},W=()=>window.matchMedia("(min-width: 1440px)").matches?5:window.matchMedia("(min-width: 768px)").matches?4:11,k=()=>{const t=document.querySelector(".about-artist__info-item--bio .about-artist__info-item-text");if(!t)return;t.dataset.fullText||(t.dataset.fullText=t.textContent.trim());const e=t.dataset.fullText;t.style.visibility="hidden";const s=parseFloat(getComputedStyle(t).lineHeight),a=W(),r=s*a;let i=e.split(" "),n=e;for(t.textContent=n;t.scrollHeight>r&&i.length>0;)i.pop(),n=i.join(" "),t.textContent=n+"...";t.style.maxHeight=`${r}px`,t.style.overflowY=t.scrollHeight>r?"auto":"hidden",t.style.visibility="visible"};function w(){clearTimeout(y),y=setTimeout(k,150)}//! ============================================================================
+function K(t){if(t==null)return"0:00";const e=Math.floor(t/1e3),s=Math.floor(e/60),a=e%60;return`${s}:${a.toString().padStart(2,"0")}`}function J(t,e=!0){return t.reduce((s,a)=>{const r=a.tracks.filter(i=>{var n;return Number(i.intDuration)>0&&((n=i.strTrack)==null?void 0:n.trim())});return e&&r.length===0||s.push({...a,tracks:r}),s},[])}//! ============================================================================
+function F(t){if(typeof t!="string"||t.trim()==="")return!1;try{const e=new URL(t);return e.protocol==="http:"||e.protocol==="https:"}catch{return!1}}//! ============================================================================
+function Z(t){f.error({message:t,position:"topRight",class:"custom-error-toast",timeout:5e3,onOpening:(e,s)=>{const a=s.querySelector(".iziToast-body");if(a){const i=document.createElement("span");i.classList.add("iziToast-icon"),i.innerHTML=`
           <svg class="toast-error-icon" width="24" height="24">
-            <use xlink:href="${l}#icon-toast-error"></use>
+            <use xlink:href="${u}#icon-toast-error"></use>
           </svg>
-        `,a.prepend(i)}const s=r.querySelector(".iziToast-close");s&&(s.innerHTML=`
+        `,a.prepend(i)}const r=s.querySelector(".iziToast-close");r&&(r.innerHTML=`
           <svg class="toast-close-icon" width="16" height="16">
-            <use xlink:href="${l}#icon-toast-close"></use>
+            <use xlink:href="${u}#icon-toast-close"></use>
           </svg>
-        `)}})}const u=c.artistModalElems;//! ============================================================================
-async function O(t){it(),st();try{const e=await I(t),{albumsList:r}=e;V(e);const a=Y(r,!0);W(a),setTimeout(v,0)}catch(e){z(e.message)}finally{rt()}}//! ============================================================================
-const D=t=>{const{strArtist:e,strArtistThumb:r,intFormedYear:a,intDiedYear:s="",strGender:i,intMembers:o,strCountry:E,strBiographyEN:A,genres:T}=t,$=H({intFormedYear:a,intDiedYear:s}),p=o&&o>1,w=R([{title:"Years active",key:"activeYears",value:$},{title:"Sex",key:"strGender",value:i,isBand:p},{title:"Members",key:"intMembers",value:o,isBand:p},{title:"Country",key:"strCountry",value:E},{title:"Biography",key:"strBiographyEN",value:A}]),B=K(T);return`<section class="about-artist js-about-artist">
+        `)}})}const m=l.artistModalElems;//! ============================================================================
+async function tt(t){bt(),ft();try{const e=await Q(t),{albumsList:s}=e;nt(e);const a=J(s,!0);ot(a),setTimeout(k,0)}catch(e){Z(e.message)}finally{At()}}//! ============================================================================
+const et=t=>{const{strArtist:e,strArtistThumb:s,intFormedYear:a,intDiedYear:r="",strGender:i,intMembers:n,strCountry:E,strBiographyEN:M,genres:B}=t,T=D({intFormedYear:a,intDiedYear:r}),g=n&&n>1,$=rt([{title:"Years active",key:"activeYears",value:T},{title:"Sex",key:"strGender",value:i,isBand:g},{title:"Members",key:"intMembers",value:n,isBand:g},{title:"Country",key:"strCountry",value:E},{title:"Biography",key:"strBiographyEN",value:M}]),x=it(B);return`<section class="about-artist js-about-artist">
                 <h2 class="about-artist__title">${e}</h2>
                 <div class="about-artist__content">
                     <img
-                    src="${r}"
+                    src="${s}"
                     class="about-artist__image"
                     alt="${e}"
                     />
                     <ul class="about-artist__info-list">
-                        ${w}
+                        ${$}
                         <li class="about-artist__info-item--genres">
                           <ul class="about-artist__music-genres">
-                             ${B}
+                             ${x}
                           </ul>
                         </li>
                     </ul>
                 </div>
-            </section>`};function F(t){const{key:e,value:r,title:a,isBand:s=""}=t;if(e==="strGender"&&s||e==="intMembers"&&!s)return"";const o=`<li class="${e==="strBiographyEN"?"about-artist__info-item about-artist__info-item--bio":"about-artist__info-item"}">
+            </section>`};function st(t){const{key:e,value:s,title:a,isBand:r=""}=t;if(e==="strGender"&&r||e==="intMembers"&&!r)return"";const n=`<li class="${e==="strBiographyEN"?"about-artist__info-item about-artist__info-item--bio":"about-artist__info-item"}">
                            <b class="about-artist__info-item-title">${a}</b>
-                           <p class="about-artist__info-item-text">${r}</p>
-                        </li>`;return r?o:""}function R(t){return t.map(F).join(`
+                           <p class="about-artist__info-item-text">${s}</p>
+                        </li>`;return s?n:""}function rt(t){return t.map(st).join(`
 `)}//! ============================================================================
-const U=t=>`<li class="about-artist__music-genre">${t}</li>`;function K(t){return(t==null?void 0:t.length)>0?t.map(U).join(`
+const at=t=>`<li class="about-artist__music-genre">${t}</li>`;function it(t){return(t==null?void 0:t.length)>0?t.map(at).join(`
 `):""}//! ============================================================================
-const V=t=>{const e=D(t);u.artistModalInnerEl.insertAdjacentHTML("afterbegin",e)};//! ============================================================================
-const W=t=>{const e=J(t);u.artistModalInnerEl.insertAdjacentHTML("beforeend",e)};function J(t){return`<section class="artist-albums js-artist-modal-albums">
+const nt=t=>{const e=et(t);m.artistModalInnerEl.insertAdjacentHTML("afterbegin",e)};//! ============================================================================
+const ot=t=>{const e=lt(t);m.artistModalInnerEl.insertAdjacentHTML("beforeend",e)};function lt(t){return`<section class="artist-albums js-artist-modal-albums">
             <h2 class="artist-albums__title">Albums</h2>
             <ul class="artist-albums__list js-artist-albums">
-              ${Q(t)}
+              ${ct(t)}
             </ul>
-          </section>`}function Q(t){return t.map(X).join(`
-`)}function X(t){const{strAlbum:e="",tracks:r}=t,a=(r==null?void 0:r.length)>0?tt(r):"";return`<li class="artist-album">
+          </section>`}function ct(t){return t.map(ut).join(`
+`)}function ut(t){const{strAlbum:e="",tracks:s}=t,a=(s==null?void 0:s.length)>0?mt(s):"";return`<li class="artist-album">
             <h3 class="artist-album__title">${e}</h3>
             <div class="artist-album__tracks">
               <ul class="artist-tracks__header">
@@ -73,21 +81,21 @@ const W=t=>{const e=J(t);u.artistModalInnerEl.insertAdjacentHTML("beforeend",e)}
               </ul>
             </div>
           </li>`}//! ============================================================================
-function Z(t){const{strTrack:e,intDuration:r,movie:a}=t,s=et(a),i=N(r);return`<li class="artist-tracks__item">
+function dt(t){const{strTrack:e,intDuration:s,movie:a}=t,r=pt(a),i=K(s);return`<li class="artist-tracks__item">
             <span class="artist-tracks__item-name">${e}</span>
             <span class="artist-tracks__item-duration">${i}</span>
-            ${s}
-          </li>`}function tt(t){return t.map(Z).join(`
+            ${r}
+          </li>`}function mt(t){return t.map(dt).join(`
 `)}//! ============================================================================
-function et(t){return G(t)?`<a href="${t}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
+function pt(t){return F(t)?`<a href="${t}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
                           <svg class="artist-tracks__item-icon" width="21" height="15">
-                            <use href="${l}#icon-Youtube"></use>
+                            <use href="${u}#icon-Youtube"></use>
                           </svg>
                       </a>`:""}//! ============================================================================
-const st=()=>{u.artistModalLoaderEl.classList.add("modal-loader-visible")},rt=()=>{u.artistModalLoaderEl.classList.remove("modal-loader-visible")},n=c.artistModalElems;let _=0;//! ============================================================================
-const at=t=>{const e=t.target.closest(".js-artist-more-btn");e&&O(e.dataset.artistsId)};//! ============================================================================
-function it(){_=window.scrollY,document.body.style.top=`-${_}px`,document.body.classList.add("scroll-lock"),n.artistModalEl.classList.add("artist-modal--is-open"),document.addEventListener("keydown",k),window.addEventListener("resize",L),n.artistModalEl.addEventListener("click",M),n.closeArtistModalBtnEl.addEventListener("click",d),n.artistModalBodyEl.scrollTop=0}function d(){n.artistModalEl.classList.remove("artist-modal--is-open"),document.body.classList.remove("scroll-lock");const t=Math.abs(parseInt(document.body.style.top||"0",10));document.body.style.top="",window.scrollTo(0,t),n.artistModalInnerEl.innerHTML="",document.removeEventListener("keydown",k),window.removeEventListener("resize",L),n.artistModalEl.removeEventListener("click",M),n.closeArtistModalBtnEl.removeEventListener("click",d)}//! ============================================================================
-function k(t){t.key==="Escape"&&d()}//! ============================================================================
-function M(t){t.target===n.artistModalEl&&d()}const{artistsList:ot}=c;//! ============================================================================
-ot.addEventListener("click",at);
+const ft=()=>{m.artistModalLoaderEl.classList.add("modal-loader-visible")},At=()=>{m.artistModalLoaderEl.classList.remove("modal-loader-visible")},o=l.artistModalElems;let v=0;//! ============================================================================
+const gt=t=>{const e=t.target.closest(".js-artist-more-btn");e&&tt(e.dataset.artistsId)};//! ============================================================================
+function bt(){v=window.scrollY,document.body.style.top=`-${v}px`,document.body.classList.add("scroll-lock"),o.artistModalEl.classList.add("artist-modal--is-open"),document.addEventListener("keydown",_),window.addEventListener("resize",w),o.artistModalEl.addEventListener("click",L),o.closeArtistModalBtnEl.addEventListener("click",p),o.artistModalBodyEl.scrollTop=0}function p(){o.artistModalEl.classList.remove("artist-modal--is-open"),document.body.classList.remove("scroll-lock");const t=Math.abs(parseInt(document.body.style.top||"0",10));document.body.style.top="",window.scrollTo(0,t),o.artistModalInnerEl.innerHTML="",document.removeEventListener("keydown",_),window.removeEventListener("resize",w),o.artistModalEl.removeEventListener("click",L),o.closeArtistModalBtnEl.removeEventListener("click",p)}//! ============================================================================
+function _(t){t.key==="Escape"&&p()}//! ============================================================================
+function L(t){t.target===o.artistModalEl&&p()}const{artistsList:ht}=l;//! ============================================================================
+ht.addEventListener("click",gt);
 //# sourceMappingURL=index.js.map
