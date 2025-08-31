@@ -1,21 +1,42 @@
-<section class="hero">
-  <div class="container">
-    <h1 class="hero-title">
-      Discover<br />
-      Your Next<br />
-      Favorite<br />
-      Artist<br />
-      Today
-    </h1>
-
-    <p class="hero-subtitle">
-      Dive into a world of music discoveries with ArtistsHub—your personal guide
-      to the boundless universe of sound. Explore, filter, and learn about your
-      favorite artists all in one place.
-    </p>
-
-    <button class="hero-button">Explore Artists</button>
+<section id="hero" class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Discover Your Next Favorite Artist Today</h1>
+      <p class="hero-text">
+        Dive into a world of music discoveries with ArtistsHub – your personal
+        guide to the boundless universe of sound. Explore, filter, and learn
+        about your favorite artists all in one place.
+      </p>
+      <a class="hero-btn" href="#artists">
+        Explore Artists
+        <svg class="hero-icon" width="24" height="24">
+          <use href="./img/sprite.svg#icon-caret-right"></use>
+        </svg>
+      </a>
+    </div>
+    <picture class="hero-picture">
+      <source
+        srcset="
+          ./img/hero/hero-img-desk.png    1x,
+          ./img/hero/hero-img-desk@2x.png 2x
+        "
+        media="(min-width: 1440px)"
+      />
+      <source
+        srcset="
+          ./img/hero/hero-img-tab.png    1x,
+          ./img/hero/hero-img-tab@2x.png 2x
+        "
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="
+          ./img/hero/hero-img-mob.png    1x,
+          ./img/hero/hero-img-mob@2x.png 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <img src="./img/hero/hero-img-desk.png" class="hero-img" />
+    </picture>
   </div>
-
-  <div class="hero-image"></div>
 </section>
