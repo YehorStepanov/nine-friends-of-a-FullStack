@@ -1,87 +1,96 @@
 .aboutUs-section {
-    background-color: var(--color-neutral-darkest);
-    padding: 0;
+  background-color: var(--color-neutral-darkest);
+  padding: 64px 0;
 }
 
 .aboutUs-container {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    padding: 64px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 0 16px;
 }
 
 .aboutUs-img {
-    width: 100%;
-    border-radius: 16px;
+  width: 100%;
+  border-radius: 16px;
 }
 
 .aboutUs-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .aboutUs-icon {
-    filter: invert(1);
-    margin-bottom: 20px;
+  filter: invert(1);
+  margin-bottom: 20px;
 }
 
 .aboutUs-title {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    font-size: 44px;
-    line-height: 120%;
-    letter-spacing: -0.01em;
-    color: #fff;
-    margin-bottom: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .aboutUs-paragraph {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: #fff;
 }
 
 @media only screen and (min-width: 768px) {
-    .aboutUs-container {
-        gap: 24px;
-        padding: 64px 32px;
-    }
+  .aboutUs-container {
+    gap: 24px;
+    padding: 0 32px;
+  }
+  .aboutUs-section {
+    padding: 64px 0;
+  }
+  .aboutUs-title {
+    font-size: 44px;
+  }
 
-    .aboutUs-title {
-        font-size: 44px;
-    }
-
-    .aboutUs-paragraph {
-        font-size: 20px;
-    }
+  .aboutUs-paragraph {
+    font-size: 20px;
+  }
+  .aboutUs-icon {
+    margin-bottom: 24px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .aboutUs-container {
-        flex-direction: row;
-        align-items: center;
-        gap: 32px;
-        padding: 112px 64px;
-    }
+  .aboutUs-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 0 64px;
+  }
 
-    .aboutUs-icon {
-        filter: invert(1);
-        margin-bottom: 24px;
-    }
+  .aboutUs-icon {
+    filter: invert(1);
+    margin-bottom: 24px;
+  }
 
-    .aboutUs-picture,
-    .aboutUs-content {
-        flex: 1;
-    }
+  .aboutUs-picture,
+  .aboutUs-content {
+    flex: 1;
+  }
 
-    .aboutUs-title {
-        font-size: 60px;
-    }
+  .aboutUs-title {
+    font-size: 60px;
+    margin-bottom: 24px;
+  }
 
-    .aboutUs-paragraph {
-        font-size: 20px;
-    }
+  .aboutUs-paragraph {
+    font-size: 20px;
+  }
+  .aboutUs-section {
+    padding: 112px 0;
+  }
 }
