@@ -5,5 +5,5 @@ export function showLoader(id) {
 }
 
 export function hideLoader(id) {
-  document.getElementById(id).classList.add('hidden');
+  document.getElementById(id).classList.add('hidden'); 
 }

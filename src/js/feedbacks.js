@@ -11,25 +11,29 @@ import Raty from 'raty-js';
 import starOn from '/img/starOn.png';
 import starOff from '/img/starOff.png';
 import refs from './refs';
+import { showLoader, hideLoader } from './loader';
 
 // fetch feedbacks and init page load
 async function initLoad() {
     let feedbacksArray = [];
     try {
-        const response = await getFeedbacks();            
+        const response = await getFeedbacks(); 
+        showLoader('feedbacks-loader');
         if (response && Array.isArray(response)) {
             feedbacksArray = response;
         } else {
             feedbacksArray = [];
         }
     } catch (err) {
+        hideLoader('feedbacks-loader');
         iziToast.error({ message: 'Network error' });
         return;
     }
     if (feedbacksArray.length === 0) {
+        hideLoader('feedbacks-loader');
         iziToast.error({ message: 'Nothing to show. Please, try again later.' });
         return;
-    }
+    }    
     renderFeedbacks(feedbacksArray);
     initSwiper(feedbacksArray.length);
     renderStars();
@@ -62,7 +66,7 @@ function renderStars() {
 }
 
 // create swiper with custom bullets
-function initSwiper(totalSlides) {
+function initSwiper(totalSlides) {    
     const firstBullet = 0;
     const lastBullet = totalSlides - 1;
     const middleBullet = Math.floor(totalSlides / 2);
@@ -94,6 +98,7 @@ function initSwiper(totalSlides) {
     });
     refs.swiperBtnPrev.classList.remove('visually-hidden');
     refs.swiperBtnNext.classList.remove('visually-hidden');
+    hideLoader('feedbacks-loader');
     // handle clicks on custom bullets
     swiper.pagination.el.addEventListener('click', (e) => {
         if (!e.target.classList.contains('swiper-pagination-bullet')) {
