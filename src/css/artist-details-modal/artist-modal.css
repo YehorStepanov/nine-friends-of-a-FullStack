@@ -1,6 +1,11 @@
 /* Body */
 body.scroll-lock {
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
 /* Modal Container */
@@ -59,6 +64,7 @@ body.scroll-lock {
 .artist-modal__body {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable both-edges;
   scrollbar-width: thin;
   scrollbar-color: rgba(118, 65, 145, 0.5) transparent;
