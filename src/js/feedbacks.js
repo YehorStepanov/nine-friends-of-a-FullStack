@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import { getFeedbacks } from './site-api';
+import { getFeedbacks, postFeedback } from './site-api';
 import Raty from 'raty-js';
 import starOn from '/img/starOn.png';
 import starOff from '/img/starOff.png';
@@ -60,16 +60,14 @@ function renderFeedbacks(arr) {
 
 function feedbackTemplate({ name, descr, rating }) {
   return `<div class="swiper-slide">
-        <div class="stars" data-raty data-score="${Math.round(
-          rating
-        )}" data-read-only="true"></div>
+        <div class="stars" data-raty data-score="${Math.round(rating)}" data-read-only="true"></div>
         <p class="feedback-content">${descr}</p>
         <p class="feedback-name">${name}</p>
         </div>`;
 }
 
 function renderStars() {
-  document.querySelectorAll('[data-raty]').forEach(el => {
+  document.querySelectorAll('[data-raty]').forEach((el) => {
     new Raty(el, {
       starOn: starOn,
       starOff: starOff,
@@ -119,15 +117,13 @@ function initSwiper(totalSlides) {
     },
   });
 
-  if (refs.swiperBtnPrev)
-    refs.swiperBtnPrev.classList.remove('visually-hidden');
-  if (refs.swiperBtnNext)
-    refs.swiperBtnNext.classList.remove('visually-hidden');
+  if (refs.swiperBtnPrev) refs.swiperBtnPrev.classList.remove('visually-hidden');
+  if (refs.swiperBtnNext) refs.swiperBtnNext.classList.remove('visually-hidden');
   hideLoader('feedbacks-loader');
 
   // handle clicks on custom bullets
   if (swiper.pagination && swiper.pagination.el) {
-    swiper.pagination.el.addEventListener('click', e => {
+    swiper.pagination.el.addEventListener('click', (e) => {
       if (!e.target.classList.contains('swiper-pagination-bullet')) {
         return;
       }
@@ -192,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).init();
   }
 
-  document.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     if (e.target.closest('[data-feedback-modal-open]')) {
       e.preventDefault();
       openModal();
@@ -211,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('is-hidden')) {
       closeModal();
     }
@@ -237,24 +233,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const payload = {
       name: (fd.get('name') || '').trim(),
-      rating: parseInt(
-        modal.querySelector('[data-raty] input[name="score"]')?.value || 0,
-        10
-      ),
+      rating: parseInt(modal.querySelector('[data-raty] input[name="score"]')?.value || 0, 10),
       descr: (fd.get('descr') || '').trim(),
     };
 
     const errorElements = modal.querySelectorAll('.error-message');
-    errorElements.forEach(el => {
+    errorElements.forEach((el) => {
       el.textContent = '';
       el.style.display = 'none';
     });
 
-    modal
-      .querySelectorAll('.form-field-name, .form-field-message')
-      .forEach(el => {
-        el.classList.remove('error');
-      });
+    modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
+      el.classList.remove('error');
+    });
 
     const errors = {
       name: [],
@@ -266,23 +257,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (payload.descr.length < 10 || payload.descr.length > 512) {
-      errors.descr.push(
-        'The comment must contain between 10 and 512 characters'
-      );
+      errors.descr.push('The comment must contain between 10 and 512 characters');
     }
 
-    const hasErrors = Object.values(errors).some(
-      errorArray => errorArray.length > 0
-    );
+    const hasErrors = Object.values(errors).some((errorArray) => errorArray.length > 0);
 
-    Object.keys(errors).forEach(field => {
+    Object.keys(errors).forEach((field) => {
       const errorElement = modal.querySelector(`[data-error="${field}"]`);
       if (errorElement && errors[field].length > 0) {
         errorElement.textContent = errors[field].join(', ');
         errorElement.style.display = 'block';
 
         const parentElement = errorElement.closest(
-          field === 'name' ? '.form-field-name' : '.form-field-message'
+          field === 'name' ? '.form-field-name' : '.form-field-message',
         );
         if (parentElement) {
           parentElement.classList.add('error');
@@ -295,18 +282,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const storedFeedbacks = JSON.parse(
-        localStorage.getItem('feedbacks') || '[]'
-      );
-
-      storedFeedbacks.push(payload);
-
-      localStorage.setItem('feedbacks', JSON.stringify(storedFeedbacks));
-
-      iziToast.success({
-        title: 'Success',
-        message: 'Your review has been successfully added!',
-      });
+      const storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks') || '[]');
+      postFeedback(payload)
+        .then(function (response) {
+          iziToast.success({
+            title: 'Success',
+            message: 'Your review has been successfully added!',
+          });
+        })
+        .catch(function (error) {
+          iziToast.error({
+            title: 'Ошибка',
+            message: error,
+          });
+        });
 
       closeModal();
     } catch (error) {
@@ -322,16 +311,14 @@ document.addEventListener('DOMContentLoaded', () => {
       modalInner.innerHTML = renderForm();
     } else {
       const errorElements = modal.querySelectorAll('.error-message');
-      errorElements.forEach(el => {
+      errorElements.forEach((el) => {
         el.textContent = '';
         el.style.display = 'none';
       });
 
-      modal
-        .querySelectorAll('.form-field-name, .form-field-message')
-        .forEach(el => {
-          el.classList.remove('error');
-        });
+      modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
+        el.classList.remove('error');
+      });
 
       const form = modal.querySelector('.js-feedback-form');
       if (form) {
@@ -357,16 +344,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeModal() {
     const errorElements = modal.querySelectorAll('.error-message');
-    errorElements.forEach(el => {
+    errorElements.forEach((el) => {
       el.textContent = '';
       el.style.display = 'none';
     });
 
-    modal
-      .querySelectorAll('.form-field-name, .form-field-message')
-      .forEach(el => {
-        el.classList.remove('error');
-      });
+    modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
+      el.classList.remove('error');
+    });
 
     if (document.activeElement && modal.contains(document.activeElement)) {
       document.activeElement.blur();

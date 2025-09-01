@@ -21,7 +21,7 @@ export async function getArtistsList(page = 1) {
 
 // Fetch artist data and albums by artist ID
 //! ============================================================================
-export const getArtistDataAndAlbums = async id => {
+export const getArtistDataAndAlbums = async (id) => {
   const res = await axios.get(`artists/${id}/albums`);
   return res.data;
 };
@@ -33,11 +33,18 @@ export async function getFeedbacks() {
       params: {
         limit: 10,
         page: 1,
-      }
+      },
     });
-    const feedbacksArray = response.data.data;    
+    const feedbacksArray = response.data.data;
     return feedbacksArray;
   } catch (err) {
-    console.log('Error fetching feedbacks', err);    
+    console.log('Error fetching feedbacks', err);
   }
-} 
+}
+
+//! ============================================================================
+//Feedback API
+
+export async function postFeedback(feedback) {
+  axios.post('feedbacks', { ...feedback });
+}
