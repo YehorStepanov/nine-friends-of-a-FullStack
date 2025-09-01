@@ -12,25 +12,29 @@ async function createArtistsList(page) {
     showLoader('artists__loader');
     const markup = data.artists
       .map(
-        (item) => `
+        item => `
           <li class="artists__item">
             <img class="artists__image" src="${item.strArtistThumb}" alt="${
           item.strArtist
         }" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
             <ul class="artists__genre-list">
-              ${item.genres.map((g) => `<li class="artists__genre-item">${g}</li>`).join('')}
+              ${item.genres
+                .map(g => `<li class="artists__genre-item">${g}</li>`)
+                .join('')}
             </ul>
             <h3 class="artists__title-name">${item.strArtist}</h3>
             <p class="artists__text-biography">${item.strBiographyEN}</p>
 
-            <button class="artists__more-btn js-artist-more-btn" data-artists-id="${item._id}">
+            <button class="artists__more-btn js-artist-more-btn" data-artists-id="${
+              item._id
+            }">
               Learn More 
               <svg class="artists-more__caret">
                 <use href='${sprite}#icon-caret-right'></use>
               </svg>
             </button>
           </li>
-        `,
+        `
       )
       .join('');
 
@@ -59,21 +63,39 @@ async function initPagination() {
       currentPage: '<strong class="custom-current">{{page}}</strong>',
       moveButton:
         '<a href="#" class="custom-move-btn tui-{{type}}">' +
-        '<span class="icon-{{type}}">{{type}}</span>' +
+        '<span class="icon-{{type}}"></span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="custom-move-btn disabled custom-{{type}}">' +
-        '<span class="icon-{{type}}">{{type}}</span>' +
+        '<span class="custom-move-btn disabled tui-{{type}}">' +
+        '<span class="icon-{{type}}"></span>' +
         '</span>',
       moreButton: '<a href="#" class="custom-ellip">...</a>',
     },
   });
 
-  pagination.on('afterMove', async (event) => {
+  const icons = {
+    first:
+      '<svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M18 6v12l-8-6 8-6zM6 6h2v12H6V6z"/></svg>',
+    prev: '<svg width="24" height="24" viewBox="0 0 31 32" fill="#fff"><path d="m16.265 22.612-5.495-5.495h12.27v-2.56H10.77l5.495-5.495-1.81-1.81-8.585 8.585 8.585 8.585 1.81-1.81z"/></svg>',
+    next: '<svg width="24" height="24" viewBox="0 0 31 32" fill="#fff"><path d="m14.455 22.612 1.81 1.81 8.585-8.585-8.585-8.585-1.81 1.81 5.495 5.495H7.68v2.56h12.27l-5.495 5.495z"/></svg>',
+    last: '<svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M6 6v12l8-6-8-6zM18 6h-2v12h2V6z"/></svg>',
+  };
+
+  function replaceMoveButtons() {
+    ['first', 'prev', 'next', 'last'].forEach(type => {
+      const btn = paginationEl.querySelector(`.tui-${type} .icon-${type}`);
+      if (btn) btn.innerHTML = icons[type];
+    });
+  }
+
+  replaceMoveButtons();
+
+  pagination.on('afterMove', async event => {
     const currentPage = event.page;
     showLoader('artists__loader');
     await createArtistsList(currentPage);
+
+    replaceMoveButtons();
   });
 }
-
 initPagination();
