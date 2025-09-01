@@ -203,6 +203,13 @@
   line-height: 150%;
   color: var(--color-error-red);
 }
+.iziToast-center-text {
+  border-radius: 5px;
+  width: 100%;
+}
+.izitoast-centered-text .iziToast-message {
+  text-align: center;
+}
 
 @media screen and (min-width: 768px) {
   .feedback-modal__content {
