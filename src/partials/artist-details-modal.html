@@ -18,3 +18,31 @@
     </div>
   </div>
 </div>
+
+<!-- feedback-modal -->
+<div
+  class="feedback-modal js-feedback-modal is-hidden"
+  id="feedback-modal"
+  aria-hidden="true"
+>
+  <div class="contain feedback-modal__container">
+    <div class="feedback-modal__content">
+      <button
+        class="feedback-modal__close-btn"
+        type="button"
+        data-feedback-modal-close
+        aria-label="Close modal"
+      >
+        <svg class="feedback-modal__close-icon" width="32" height="32">
+          <use href="/img/sprite.svg#icon-feedback-modal-close-icon"></use>
+        </svg>
+      </button>
+
+      <span class="feedback-modal__loader js-feedback-modal-loader"></span>
+
+      <div class="feedback-modal__body js-feedback-modal-body">
+        <div class="feedback-modal__inner js-feedback-modal-inner"></div>
+      </div>
+    </div>
+  </div>
+</div>
