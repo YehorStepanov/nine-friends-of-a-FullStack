@@ -20,18 +20,36 @@
     <script type="module" crossorigin src="/seven-friends-of-a-FullStack/index.js"></script>
     <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-Bttng-cq.js">
     <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-BlEjEAQG.css">
-    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-DTjrrFWk.css">
+    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-CIIqYKB4.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <nav class="nav"></nav>
+  <div class="container header-container">
+    <nav class="navigator-header">
+      <a href="/index.html" class="logo-header">
+        <svg width="119" height="51">
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Company-Logo"></use>
+        </svg>
+      </a>
+      <ul class="desktop-nav">
+        <li><a class="nav-link-modal" href="#artists-section">Artists</a></li>
+        <li><a class="nav-link-modal" href="#about">About Us</a></li>
+        <li><a class="nav-link-modal" href="#reviews">Reviews</a></li>
+      </ul>
+      <div class="menu-box">
+        <button type="button" class="menu-mobile js-burger-menu-open">
+          <svg width="24" height="24">
+            <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-menu-alt-right"></use>
+          </svg>
+        </button>
+      </div>
+    </nav>
   </div>
 </header>
 
     <main>
       
-      <section class="artists-section">
+      <section class="artists-section" id="artists-section">
   <div class="container">
     <h2 class="artists__title">Artists</h2>
     <p class="artists__sub-title">Explore Your New Favorite Artists</p>
@@ -68,7 +86,7 @@
     <div class="aboutUs-content">
       <a href="index.html" class="aboutUs-link" aria-label="Back to home">
         <svg class="aboutUs-icon" width="64" height="64">
-          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icongo-icon"></use>
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icongo-icon"></use>
         </svg>
       </a>
 
@@ -99,12 +117,12 @@
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev visually-hidden">
           <svg class="icon-arrow" width="24" height="24">
-            <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-left-arrow"></use>
+            <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-left-arrow"></use>
           </svg>
         </div>
         <div class="swiper-button-next visually-hidden">
           <svg class="icon-arrow" width="24" height="24">
-            <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-right-arrow"></use>
+            <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-right-arrow"></use>
           </svg>
         </div>
       </div>
@@ -131,43 +149,34 @@
   <div class="container">
     <a href="./index.html" class="footer-logo">
       <svg class="footer-logo-img" width="106" height="30">
-        <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#footer-logo"></use>
+        <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#footer-logo"></use>
       </svg>
     </a>
     <div class="footer-nav">
       <ul class="footer-link-list">
-        <li class="footer-link-item"><a href="#header">Artists</a></li>
-        <li class="footer-link-item"><a href="#">About us</a></li>
+        <li class="footer-link-item"><a href="#artists-section">Artists</a></li>
+        <li class="footer-link-item"><a href="#about">About us</a></li>
         <li class="footer-link-item"><a href="#reviews">Reviews</a></li>
       </ul>
     </div>
     <div class="footer-contacts">
       <ul class="footer-contacts-list">
         <li class="footer-contacts-item">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Instagram"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Instagram"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item#">
-          <a
-            href="https://www.facebook.com/ "
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href="https://www.facebook.com/ " target="_blank" rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Facebook"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Facebook"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item">
-          <a
-            href=" https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href=" https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Youtube"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Youtube"></use></svg
           ></a>
         </li>
       </ul>
@@ -186,7 +195,7 @@
         aria-label="Close modal"
       >
         <svg class="artist-modal__close-icon" width="32" height="32">
-          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-artist-modal-close-icon"></use>
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-artist-modal-close-icon"></use>
         </svg>
       </button>
       <span class="artist-modal__loader js-artist-modal-loader"></span>
@@ -212,7 +221,7 @@
         aria-label="Close modal"
       >
         <svg class="feedback-modal__close-icon" width="32" height="32">
-          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-feedback-modal-close-icon"></use>
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-feedback-modal-close-icon"></use>
         </svg>
       </button>
 
@@ -224,6 +233,31 @@
     </div>
   </div>
 </div>
+
+    <!-- Modal menu -->
+<div class="burger-overlay" id="burger-overlay">
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu-top">
+      <a href="/index.html" class="logo-mobile">
+        <svg width="119" height="51">
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Company-Logo"></use>
+        </svg>
+      </a>
+      <button class="menu-close-btn js-burger-menu-close" aria-label="Close menu">
+        <svg class="close-icon" width="24" height="24">
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="mobile-menu-list">
+      <li><a class="nav-link-modal" href="#artists-section">Artists</a></li>
+      <li><a class="nav-link-modal" href="#about">About Us</a></li>
+      <li><a class="nav-link-modal" href="#reviews">Reviews</a></li>
+    </ul>
+  </div>
+</div>
+
 
   </body>
 </html>
