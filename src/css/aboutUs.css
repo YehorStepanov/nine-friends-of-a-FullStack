@@ -22,7 +22,7 @@
 }
 
 .aboutUs-icon {
-  filter: invert(1);
+  fill: white;
   margin-bottom: 20px;
 }
 
@@ -73,7 +73,7 @@
   }
 
   .aboutUs-icon {
-    filter: invert(1);
+    fill: white;
     margin-bottom: 24px;
   }
 
