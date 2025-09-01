@@ -76,8 +76,8 @@ async function initPagination() {
   const icons = {
     first:
       '<svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M18 6v12l-8-6 8-6zM6 6h2v12H6V6z"/></svg>',
-    prev: '<svg width="24" height="24" viewBox="0 0 31 32" fill="#fff"><path d="m16.265 22.612-5.495-5.495h12.27v-2.56H10.77l5.495-5.495-1.81-1.81-8.585 8.585 8.585 8.585 1.81-1.81z"/></svg>',
-    next: '<svg width="24" height="24" viewBox="0 0 31 32" fill="#fff"><path d="m14.455 22.612 1.81 1.81 8.585-8.585-8.585-8.585-1.81 1.81 5.495 5.495H7.68v2.56h12.27l-5.495 5.495z"/></svg>',
+    prev: `<svg class="artists__pagination-icon"><use href="${sprite}#icon-left-arrow"></use></svg>`,
+    next: `<svg class="artists__pagination-icon"><use href="${sprite}#icon-right-arrow"></use></svg>`,
     last: '<svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M6 6v12l8-6-8-6zM18 6h-2v12h2V6z"/></svg>',
   };
 

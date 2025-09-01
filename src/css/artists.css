@@ -201,6 +201,12 @@
   background: transparent;
 }
 
+.artists__pagination-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
 .custom-current {
   height: 60px;
   background: rgba(255, 255, 255, 0.1);
