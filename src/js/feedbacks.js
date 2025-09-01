@@ -303,11 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       localStorage.setItem('feedbacks', JSON.stringify(storedFeedbacks));
 
-      iziToast.success({
-        title: 'Success',
-        message: 'Your review has been successfully added!',
-      });
-
       closeModal();
     } catch (error) {
       iziToast.error({
