@@ -1,0 +1,23 @@
+<div class="modal-backdrop is-hidden" id="feedback-modal">
+  <div class="modal">
+    <button type="button" class="modal-close" id="close-feedback-modal">
+      &times;
+    </button>
+    <h3 class="modal-title">Ваш отзыв</h3>
+    <form id="feedback-form" class="feedback-form">
+      <label class="form-field">
+        <span>Имя</span>
+        <input type="text" name="name" required />
+      </label>
+      <label class="form-field">
+        <span>Комментарий</span>
+        <textarea name="descr" rows="4" required></textarea>
+      </label>
+      <div class="form-field">
+        <span>Оценка</span>
+        <div id="feedback-rating" data-raty></div>
+      </div>
+      <button type="submit" class="btn-submit">Отправить</button>
+    </form>
+  </div>
+</div>
