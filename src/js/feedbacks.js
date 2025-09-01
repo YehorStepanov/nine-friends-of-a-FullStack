@@ -340,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
       iziToast.error({
         title: 'Ошибка',
         message: 'Не удалось сохранить отзыв. Попробуйте еще раз.',
+        class: 'iziToast-center-text',
       });
     }
   }
