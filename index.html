@@ -20,7 +20,7 @@
     <script type="module" crossorigin src="/seven-friends-of-a-FullStack/index.js"></script>
     <link rel="modulepreload" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-Bttng-cq.js">
     <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/vendor-BlEjEAQG.css">
-    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-uX__I6y7.css">
+    <link rel="stylesheet" crossorigin href="/seven-friends-of-a-FullStack/assets/index-DTjrrFWk.css">
   </head>
   <body>
     <header class="header">
@@ -68,7 +68,7 @@
     <div class="aboutUs-content">
       <a href="index.html" class="aboutUs-link" aria-label="Back to home">
         <svg class="aboutUs-icon" width="64" height="64">
-          <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icongo-icon"></use>
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icongo-icon"></use>
         </svg>
       </a>
 
@@ -99,18 +99,29 @@
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev visually-hidden">
           <svg class="icon-arrow" width="24" height="24">
-            <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-left-arrow"></use>
+            <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-left-arrow"></use>
           </svg>
         </div>
         <div class="swiper-button-next visually-hidden">
           <svg class="icon-arrow" width="24" height="24">
-            <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-right-arrow"></use>
+            <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-right-arrow"></use>
           </svg>
         </div>
       </div>
       <div class="artists__loader">
         <span id="feedbacks-loader" class="loader"></span>
       </div>
+    </div>
+    <div class="feedbacks-actions">
+      <button
+        class="btn-feedback"
+        type="button"
+        data-feedback-modal-open
+        aria-haspopup="dialog"
+        aria-controls="feedback-modal"
+      >
+        Leave feedback
+      </button>
     </div>
   </div>
 </section>
@@ -120,7 +131,7 @@
   <div class="container">
     <a href="./index.html" class="footer-logo">
       <svg class="footer-logo-img" width="106" height="30">
-        <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#footer-logo"></use>
+        <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#footer-logo"></use>
       </svg>
     </a>
     <div class="footer-nav">
@@ -138,7 +149,7 @@
             target="_blank"
             rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-Instagram"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Instagram"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item#">
@@ -147,7 +158,7 @@
             target="_blank"
             rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-Facebook"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Facebook"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item">
@@ -156,7 +167,7 @@
             target="_blank"
             rel="noopener noreferrer"
             ><svg class="footer-social-img" width="40" height="40">
-              <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-Youtube"></use></svg
+              <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-Youtube"></use></svg
           ></a>
         </li>
       </ul>
@@ -175,12 +186,40 @@
         aria-label="Close modal"
       >
         <svg class="artist-modal__close-icon" width="32" height="32">
-          <use href="/seven-friends-of-a-FullStack/assets/sprite-CAtVymKN.svg#icon-artist-modal-close-icon"></use>
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-artist-modal-close-icon"></use>
         </svg>
       </button>
       <span class="artist-modal__loader js-artist-modal-loader"></span>
       <div class="artist-modal__body js-artist-modal-body">
         <div class="artist-modal__inner js-artist-modal-inner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- feedback-modal -->
+<div
+  class="feedback-modal js-feedback-modal is-hidden"
+  id="feedback-modal"
+  aria-hidden="true"
+>
+  <div class="contain feedback-modal__container">
+    <div class="feedback-modal__content">
+      <button
+        class="feedback-modal__close-btn"
+        type="button"
+        data-feedback-modal-close
+        aria-label="Close modal"
+      >
+        <svg class="feedback-modal__close-icon" width="32" height="32">
+          <use href="/seven-friends-of-a-FullStack/assets/sprite-Ctfn21by.svg#icon-feedback-modal-close-icon"></use>
+        </svg>
+      </button>
+
+      <span class="feedback-modal__loader js-feedback-modal-loader"></span>
+
+      <div class="feedback-modal__body js-feedback-modal-body">
+        <div class="feedback-modal__inner js-feedback-modal-inner"></div>
       </div>
     </div>
   </div>
