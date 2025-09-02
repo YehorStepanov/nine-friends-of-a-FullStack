@@ -41,6 +41,8 @@ async function initLoad() {
     }
 
     renderFeedbacks(feedbacksArray);
+    console.log(feedbacksArray);
+
     initSwiper(feedbacksArray.length);
     renderStars();
   } catch (err) {
@@ -82,7 +84,7 @@ function initSwiper(totalSlides) {
   if (totalSlides <= 0) return;
 
   const firstBullet = 0;
-  const lastBullet = totalSlides - 1;
+  const lastBullet = totalSlides;
   const middleBullet = Math.floor(totalSlides / 2);
   const swiper = new Swiper('.mySwiper', {
     modules: [Navigation, Pagination],
@@ -91,7 +93,7 @@ function initSwiper(totalSlides) {
       type: 'custom',
       renderCustom: function (swiper, current, total) {
         let activeBullet;
-        if (current === firstBullet) {
+        if (current - 1 === firstBullet) {
           activeBullet = firstBullet;
         } else if (current === lastBullet) {
           activeBullet = lastBullet;
