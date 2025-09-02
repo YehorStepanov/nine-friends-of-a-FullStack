@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/seven-friends-of-a-FullStack/",
+    "build": "vite build --base=/nine-friends-of-a-FullStack/",
     "preview": "vite preview"
   },
   "devDependencies": {
