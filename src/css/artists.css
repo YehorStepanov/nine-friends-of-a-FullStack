@@ -189,6 +189,28 @@
   transition: background 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.icon-last,
+.icon-next,
+.icon-prev,
+.icon-first {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-move-btn.disabled {
+  opacity: 0.5;
+}
+
+.custom-move-btn.disabled:hover {
+  background: transparent;
+}
+
+.artists__pagination-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
 .custom-current {
   height: 60px;
   background: rgba(255, 255, 255, 0.1);
