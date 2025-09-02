@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="form-field-star">
           <div class="feedback-modal__rating" data-raty data-score="0"></div>
           <span>Rating</span>
+          <div class="error-message" data-error="rating"></div>
         </div>
 
         <div class="form-actions">
@@ -187,6 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
       starOff: starOffBig,
       score: 0,
       readOnly: false,
+      click: function (score) {
+        const errorElement = modal.querySelector(`[data-error="rating"]`);
+        if (errorElement) {
+          errorElement.textContent = '';
+          errorElement.style.display = 'none';
+        }
+        const parentElement = modal.querySelector('.form-field-star');
+        if (parentElement) {
+          parentElement.classList.remove('error');
+        }
+      },
     }).init();
   }
 
@@ -248,10 +260,16 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
       el.classList.remove('error');
     });
+    modals
+      .querySelectorAll('.form-field-name, .form-field-message, .form-field-star')
+      .forEach((el) => {
+        el.classList.remove('error');
+      });
 
     const errors = {
       name: [],
       descr: [],
+      rating: [],
     };
 
     if (payload.name.length < 2 || payload.name.length > 16) {
@@ -262,6 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
       errors.descr.push('The comment must contain between 10 and 512 characters');
     }
 
+    if (payload.rating < 1) {
+      errors.rating.push('');
+    }
+
     const hasErrors = Object.values(errors).some((errorArray) => errorArray.length > 0);
 
     Object.keys(errors).forEach((field) => {
@@ -270,9 +292,15 @@ document.addEventListener('DOMContentLoaded', () => {
         errorElement.textContent = errors[field].join(', ');
         errorElement.style.display = 'block';
 
-        const parentElement = errorElement.closest(
-          field === 'name' ? '.form-field-name' : '.form-field-message',
-        );
+        let parentElement;
+        if (field === 'name') {
+          parentElement = errorElement.closest('.form-field-name');
+        } else if (field === 'descr') {
+          parentElement = errorElement.closest('.form-field-message');
+        } else if (field === 'rating') {
+          parentElement = errorElement.closest('.form-field-star');
+        }
+
         if (parentElement) {
           parentElement.classList.add('error');
         }
@@ -285,25 +313,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks') || '[]');
-      postFeedback(payload)
-        .then(function (response) {
-          iziToast.success({
-            title: 'Success',
-            message: 'Your review has been successfully added!',
-          });
-        })
-        .catch(function (error) {
-          iziToast.error({
-            title: 'Ошибка',
-            message: error,
-          });
-        });
+
+      storedFeedbacks.push(payload);
+
+      localStorage.setItem('feedbacks', JSON.stringify(storedFeedbacks));
+
+      iziToast.success({
+        message: 'Review has been added!',
+        position: 'bottomCenter',
+        icon: 'none',
+        class: 'iziToast-center-text',
+      });
 
       closeModal();
     } catch (error) {
       iziToast.error({
         title: 'Ошибка',
         message: 'Не удалось сохранить отзыв. Попробуйте еще раз.',
+        class: 'iziToast-center-text',
       });
     }
   }
@@ -318,9 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.display = 'none';
       });
 
-      modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
-        el.classList.remove('error');
-      });
+      modal
+        .querySelectorAll('.form-field-name, .form-field-message, .form-field-star')
+        .forEach((el) => {
+          el.classList.remove('error');
+        });
 
       const form = modal.querySelector('.js-feedback-form');
       if (form) {
@@ -351,9 +380,11 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.display = 'none';
     });
 
-    modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
-      el.classList.remove('error');
-    });
+    modal
+      .querySelectorAll('.form-field-name, .form-field-message, .form-field-star')
+      .forEach((el) => {
+        el.classList.remove('error');
+      });
 
     if (document.activeElement && modal.contains(document.activeElement)) {
       document.activeElement.blur();
