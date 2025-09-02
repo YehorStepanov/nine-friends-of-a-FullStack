@@ -62,11 +62,11 @@ async function initPagination() {
       page: '<a href="#" class="custom-page-btn">{{page}}</a>',
       currentPage: '<strong class="custom-current">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="custom-move-btn tui-{{type}}">' +
+        '<a href="#" class="custom-move-btn tui-{{type}}" aria-label="move button">' +
         '<span class="icon-{{type}}"></span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="custom-move-btn disabled tui-{{type}}">' +
+        '<span class="custom-move-btn disabled tui-{{type}}" aria-label="move button">' +
         '<span class="icon-{{type}}"></span>' +
         '</span>',
       moreButton: '<a href="#" class="custom-ellip">...</a>',
