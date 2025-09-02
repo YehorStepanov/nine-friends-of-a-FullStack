@@ -66,7 +66,9 @@
   --font-family: 'IBM Plex Sans', sans-serif;
   --second-family: 'Epilogue', sans-serif;
   --third-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
 }
+
 body {
   display: flex;
   flex-direction: column;
