@@ -41,7 +41,6 @@ async function initLoad() {
     }
 
     renderFeedbacks(feedbacksArray);
-    console.log(feedbacksArray);
 
     initSwiper(feedbacksArray.length);
     renderStars();
