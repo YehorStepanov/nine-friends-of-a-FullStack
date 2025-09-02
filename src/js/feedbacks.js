@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.querySelectorAll('.form-field-name, .form-field-message').forEach((el) => {
       el.classList.remove('error');
     });
-    modals
+    modal
       .querySelectorAll('.form-field-name, .form-field-message, .form-field-star')
       .forEach((el) => {
         el.classList.remove('error');
