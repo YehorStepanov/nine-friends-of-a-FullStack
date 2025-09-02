@@ -8,10 +8,10 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { getFeedbacks, postFeedback } from './site-api';
 import Raty from 'raty-js';
-import starOn from '/img/starOn.png';
-import starOff from '/img/starOff.png';
-import starOnBig from '/img/starOnBig.png';
-import starOffBig from '/img/starOffBig.png';
+import starOn from '/img/starOn.webp';
+import starOff from '/img/starOff.webp';
+import starOnBig from '/img/starOnBig.webp';
+import starOffBig from '/img/starOffBig.webp';
 import refs from './refs';
 import { showLoader, hideLoader } from './loader';
 

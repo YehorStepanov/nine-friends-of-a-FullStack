@@ -16,7 +16,7 @@ async function createArtistsList(page) {
           <li class="artists__item">
             <img class="artists__image" src="${item.strArtistThumb}" alt="${
           item.strArtist
-        }" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
+        }" loading="lazy" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
             <ul class="artists__genre-list">
               ${item.genres
                 .map(g => `<li class="artists__genre-item">${g}</li>`)
