@@ -129,6 +129,10 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .artists-section {
+    padding: 112px 0;
+  }
+
   .artists__list {
     flex-direction: row;
     flex-wrap: wrap;
