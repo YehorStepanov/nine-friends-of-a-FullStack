@@ -1,0 +1,208 @@
+/* Base*/
+.hero-section {
+  background: #23132b;
+  position: relative;
+  overflow: hidden;
+  margin-top: 64px;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero-title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.hero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 24px;
+  width: auto;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #764191;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+  background-color: #5a2f78;
+}
+
+.hero-icon {
+  width: 24px;
+  height: 24px;
+  fill: #764191;
+  stroke: #fff;
+  flex-shrink: 0;
+}
+
+.hero-picture {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.hero-picture::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%);
+  pointer-events: none;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(0, rgba(35, 19, 43, 0) 0%, #060307 100%);
+  pointer-events: none;
+}
+
+.hero-picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-title {
+    margin-top: 0;
+}
+/* Tablet*/
+@media (min-width: 768px) and (max-width: 1439px) {
+  .hero-section {
+    margin-top: 72px;
+  }
+  .hero-btn {
+    width: 246px;
+    padding: 10px 44px;
+    margin-right: auto;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    max-width: 600px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    max-width: 620px;
+    margin: 24px 0 32px;
+  }
+  .hero-section::before {
+    height: 125px;
+  }
+  .hero-content {
+      padding-top: 32px;
+      padding-bottom: 32px;
+  }
+  .hero-title{
+    margin-top: 0;
+  }
+}
+
+/* Dekstop */
+@media (min-width: 1440px) {
+  .hero-section {
+    margin-top: 72px;
+  }
+  .hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 640px;
+  }
+
+  .hero-title {
+    font-size: 84px;
+    margin-bottom: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-btn {
+    width: 206px;
+  }
+
+  .hero-picture {
+    display: block;
+    width: 641px;
+  }
+
+  .hero-picture img {
+    display: block;
+    width: 641px;
+    height: auto;
+  }
+  .hero-picture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to bottom, #23132b 10%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .hero-section::before {
+    height: 80px;
+  }
+}
