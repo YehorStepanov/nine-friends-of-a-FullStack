@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A collection of artists and their albums"
+    />
     <title>ArtistsHub</title>
     <link
       rel="stylesheet"
@@ -11,12 +15,22 @@
       integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/nine-friends-of-a-FullStack/assets/hero-img-mob-DozaoJB8.webp"
+      fetchpriority="high"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
     <script type="module" crossorigin src="/nine-friends-of-a-FullStack/index.js"></script>
     <link rel="modulepreload" crossorigin href="/nine-friends-of-a-FullStack/assets/vendor-Bttng-cq.js">
@@ -27,7 +41,7 @@
     <header class="header">
   <div class="container header-container">
     <nav class="navigator-header">
-      <a href="./index.html" class="logo-header">
+      <a href="./index.html" class="logo-header" aria-label="logo">
         <svg width="119" height="51">
           <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Company-Logo"></use>
         </svg>
@@ -38,7 +52,11 @@
         <li><a class="nav-link-modal" href="#reviews">Reviews</a></li>
       </ul>
       <div class="menu-box">
-        <button type="button" class="menu-mobile js-burger-menu-open">
+        <button
+          type="button"
+          class="menu-mobile js-burger-menu-open"
+          aria-label="menu button"
+        >
           <svg width="24" height="24">
             <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-menu-alt-right"></use>
           </svg>
@@ -78,7 +96,12 @@
         srcset="/nine-friends-of-a-FullStack/assets/hero-img-mob-DozaoJB8.webp 1x, /nine-friends-of-a-FullStack/assets/hero-img-mob@2x-BywCdna6.webp 2x"
         media="(max-width: 767px)"
       />
-      <img src="/nine-friends-of-a-FullStack/assets/hero-img-desk-D8x-Fkrq.webp" class="hero-img" />
+      <img
+        src="/nine-friends-of-a-FullStack/assets/hero-img-desk-D8x-Fkrq.webp"
+        class="hero-img"
+        alt="Banner with a list of artists"
+        fetchpriority="high"
+      />
     </picture>
   </div>
 </section>
@@ -181,7 +204,7 @@
     </main>
     <footer class="footer">
   <div class="container">
-    <a href="./index.html" class="footer-logo">
+    <a href="./index.html" class="footer-logo" aria-label="logo">
       <svg class="footer-logo-img" width="106" height="30">
         <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#footer-logo"></use>
       </svg>
@@ -196,19 +219,31 @@
     <div class="footer-contacts">
       <ul class="footer-contacts-list">
         <li class="footer-contacts-item">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
             ><svg class="footer-social-img" width="40" height="40">
               <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Instagram"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item#">
-          <a href="https://www.facebook.com/ " target="_blank" rel="noopener noreferrer"
+          <a
+            href="https://www.facebook.com/ "
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="facebook"
             ><svg class="footer-social-img" width="40" height="40">
               <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Facebook"></use></svg
           ></a>
         </li>
         <li class="footer-contacts-item">
-          <a href=" https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+          <a
+            href=" https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="youtube"
             ><svg class="footer-social-img" width="40" height="40">
               <use href="/nine-friends-of-a-FullStack/assets/sprite-DoBGdM4A.svg#icon-Youtube"></use></svg
           ></a>
