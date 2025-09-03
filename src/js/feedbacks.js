@@ -311,11 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks') || '[]');
-
-      storedFeedbacks.push(payload);
-
-      localStorage.setItem('feedbacks', JSON.stringify(storedFeedbacks));
+      await postFeedback(payload);
 
       iziToast.success({
         message: 'Review has been added!',
