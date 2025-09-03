@@ -5,6 +5,7 @@ import refs from './refs';
 import Pagination from 'tui-pagination';
 import sprite from '../img/sprite.svg';
 import { showLoader, hideLoader } from './loader';
+import placeholder_img from '../img/placeholder-img.webp';
 
 async function createArtistsList(page) {
   try {
@@ -16,7 +17,7 @@ async function createArtistsList(page) {
           <li class="artists__item">
             <img class="artists__image" src="${item.strArtistThumb}" alt="${
           item.strArtist
-        }" loading="lazy" onerror="this.onerror=null;this.src='/img/img-placeholder.svg';">
+        }" loading="lazy" onerror="this.onerror=null;this.src='${placeholder_img}';">
             <ul class="artists__genre-list">
               ${item.genres
                 .map(g => `<li class="artists__genre-item">${g}</li>`)
@@ -66,7 +67,7 @@ async function initPagination() {
         '<span class="icon-{{type}}"></span>' +
         '</a>',
       disabledMoveButton:
-        '<span class="custom-move-btn disabled tui-{{type}}" aria-label="move button">' +
+        '<span class="custom-move-btn disabled tui-{{type}}">' +
         '<span class="icon-{{type}}"></span>' +
         '</span>',
       moreButton: '<a href="#" class="custom-ellip">...</a>',
