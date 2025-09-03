@@ -1,7 +1,7 @@
 /* iziToast */
 
 .iziToast {
-  font-family: var(--second-family) !important;
+  font-family: 'Epilogue Bold', sans-serif !important;
 }
 
 .iziToast,
@@ -9,7 +9,7 @@
   font-size: 16px !important;
 }
 
-.iziToast > .iziToast-body {
+.iziToast>.iziToast-body {
   margin: 0 !important;
   padding: 0 !important;
   display: flex !important;
@@ -19,18 +19,18 @@
   min-height: 24px !important;
 }
 
-.iziToast > .iziToast-body .iziToast-texts {
+.iziToast>.iziToast-body .iziToast-texts {
   margin: 0 !important;
   line-height: 1.5 !important;
   letter-spacing: 0.03em !important;
 }
 
-.iziToast > .iziToast-body .iziToast-title {
+.iziToast>.iziToast-body .iziToast-title {
   margin-right: 0 !important;
   font-weight: 700 !important;
 }
 
-.iziToast > .iziToast-body .iziToast-message {
+.iziToast>.iziToast-body .iziToast-message {
   font-weight: 400 !important;
   padding-top: 4px;
 }
@@ -44,7 +44,7 @@
   background-color: var(--error-color) !important;
 }
 
-.iziToast > .iziToast-body .iziToast-icon.ico-error {
+.iziToast>.iziToast-body .iziToast-icon.ico-error {
   display: none !important;
 }
 
@@ -57,7 +57,7 @@
   opacity: 1 !important;
 }
 
-.iziToast.custom-error-toast > .iziToast-close {
+.iziToast.custom-error-toast>.iziToast-close {
   width: 24px;
   height: 24px;
   position: absolute !important;
@@ -71,7 +71,7 @@
   opacity: 1;
 }
 
-.iziToast > .iziToast-progressbar {
+.iziToast>.iziToast-progressbar {
   position: absolute;
   bottom: 0 !important;
   left: 0px !important;
@@ -81,17 +81,17 @@
   overflow: hidden;
 }
 
-.iziToast.custom-error-toast > .iziToast-progressbar {
+.iziToast.custom-error-toast>.iziToast-progressbar {
   background-color: var(--error-progress-background);
 }
 
-.iziToast > .iziToast-progressbar > div {
+.iziToast>.iziToast-progressbar>div {
   height: 4px !important;
   border-radius: 0;
   transition: width 0.2s linear;
 }
 
-.iziToast.custom-error-toast > .iziToast-progressbar > div {
+.iziToast.custom-error-toast>.iziToast-progressbar>div {
   background-color: var(--error-progress-color) !important;
 }
 

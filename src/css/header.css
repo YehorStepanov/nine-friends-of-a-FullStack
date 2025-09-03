@@ -5,6 +5,7 @@
   background-color: #060307;
   z-index: 999;
 }
+
 .navigator-header {
   height: 64px;
   display: flex;
@@ -12,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .logo-header {
   width: 119px;
   height: 51px;
@@ -23,9 +25,11 @@
 .logo-header svg:focus {
   fill: #764191;
 }
+
 .desktop-nav {
   display: none;
 }
+
 .menu-mobile svg {
   fill: white;
   transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -35,6 +39,7 @@
 .menu-mobile:focus svg {
   fill: #764191;
 }
+
 .menu-mobile {
   border: none;
   background-color: #060307;
@@ -45,6 +50,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .menu-mobile:focus-visible {
   border: none;
   outline: none;
@@ -64,6 +70,7 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .burger-overlay.--open {
   display: flex;
 }
@@ -87,24 +94,29 @@
   fill: white;
   transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .logo-mobile svg:hover,
 .logo-mobile svg:focus {
   fill: #764191;
 }
+
 .menu-close-btn {
   background-color: #060307;
   border: none;
   width: 48px;
   height: 48px;
 }
+
 .menu-close-btn svg {
   fill: white;
   transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .menu-close-btn:hover svg,
 .menu-close-btn:focus svg {
   fill: #764191;
 }
+
 .mobile-menu-list {
   display: flex;
   flex-direction: column;
@@ -112,14 +124,15 @@
   align-items: center;
   gap: 32px;
 }
+
 .nav-link-modal {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'IBM Plex Sans Medium', sans-serif;
   font-size: 26px;
   line-height: 1.5;
   color: #fff;
   transition: color 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .nav-link-modal:hover,
 .nav-link-modal:focus {
   color: #764191;
@@ -132,6 +145,7 @@
     margin-right: 32px;
     justify-content: flex-start;
   }
+
   .desktop-nav {
     display: flex;
     margin-left: 263px;
@@ -139,17 +153,19 @@
     flex-direction: row;
     gap: 32px;
   }
+
   .nav-link-modal {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
+    font-family: 'IBM Plex Sans Regular', sans-serif;
     font-size: 18px;
     line-height: 1.5;
     color: #fff;
   }
+
   .menu-mobile {
     display: none;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .navigator-header {
     height: 72px;
@@ -167,8 +183,7 @@
   }
 
   .nav-link-modal {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
+    font-family: 'IBM Plex Sans Regular', sans-serif;
     font-size: 18px;
     line-height: 1.5;
     color: #fff;
