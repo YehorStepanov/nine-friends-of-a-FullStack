@@ -41,11 +41,13 @@
 }
 
 .about-artist__info-item--bio {
-  display: -webkit-box;
-  -webkit-line-clamp: 11;
-  line-clamp: 11;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  max-height: 324px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.about-artist__info-item--bio::-webkit-scrollbar {
+  display: none;
 }
 
 .about-artist__music-genres {
@@ -96,9 +98,7 @@
   }
   .about-artist__info-item--bio {
     flex-grow: 2;
-    min-width: 0;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
+    max-height: 135px;
   }
 }
 
@@ -125,8 +125,7 @@
     max-width: 50%;
   }
   .about-artist__info-item--bio {
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    max-height: 162px;
   }
 }
 
