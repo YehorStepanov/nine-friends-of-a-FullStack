@@ -60,8 +60,7 @@
 .artist-tracks__header,
 .artist-tracks__item {
   display: grid;
-  grid-template-columns: 97px 64px 24px;
-  scrollbar-gutter: stable both-edges;
+  grid-template-columns: 97px 74px 24px;
   gap: 16px;
   grid-template-areas: 'track duration link';
   align-items: center;
@@ -133,11 +132,6 @@
 @media only screen and (min-width: 1440px) {
   .artist-album {
     width: calc((100% - 96px) / 4);
-  }
-
-  .artist-tracks__header,
-  .artist-tracks__item {
-    grid-template-columns: 97px 74px 24px;
   }
 }
 

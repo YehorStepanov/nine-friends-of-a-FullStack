@@ -1,6 +1,5 @@
 import { renderArtistModal } from './artist-modal-render-function';
 import refs from '../refs';
-import { debouncedClamp } from './artist-modal-helpers';
 
 const modalRefs = refs.artistModalElems;
 let scrollY = 0;
@@ -24,7 +23,6 @@ export function openArtistModal() {
   modalRefs.artistModalEl.classList.add('artist-modal--is-open');
 
   document.addEventListener('keydown', handleEscKeydown);
-  window.addEventListener('resize', debouncedClamp);
   modalRefs.artistModalEl.addEventListener('click', handleArtistBackdropClick);
   modalRefs.closeArtistModalBtnEl.addEventListener('click', closeArtistModal);
 
@@ -40,7 +38,6 @@ export function closeArtistModal() {
   modalRefs.artistModalInnerEl.innerHTML = '';
 
   document.removeEventListener('keydown', handleEscKeydown);
-  window.removeEventListener('resize', debouncedClamp);
   modalRefs.artistModalEl.removeEventListener(
     'click',
     handleArtistBackdropClick

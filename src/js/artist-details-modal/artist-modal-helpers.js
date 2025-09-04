@@ -2,8 +2,6 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import spriteUrl from '/img/sprite.svg';
 
-let resizeTimeout;
-
 // Artist Info Helpers
 //! ============================================================================
 
@@ -23,48 +21,6 @@ export const getActiveYears = ({ intFormedYear, intDiedYear = '' }) => {
 
   return result;
 };
-
-/** Defines number of lines for bio depending on screen width */
-const getLinesForScreen = () => {
-  if (window.matchMedia('(min-width: 1440px)').matches) return 5;
-  if (window.matchMedia('(min-width: 768px)').matches) return 4;
-  return 11;
-};
-
-/** Clamps artist bio text to fit screen and adds "..." if truncated */
-export const clampArtistBio = () => {
-  const el = document.querySelector(
-    '.about-artist__info-item--bio .about-artist__info-item-text'
-  );
-  if (!el) return;
-
-  if (!el.dataset.fullText) el.dataset.fullText = el.textContent.trim();
-  const fullText = el.dataset.fullText;
-
-  el.style.visibility = 'hidden';
-  const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
-  const maxLines = getLinesForScreen();
-  const maxHeight = lineHeight * maxLines;
-
-  let words = fullText.split(' ');
-  let truncated = fullText;
-  el.textContent = truncated;
-
-  while (el.scrollHeight > maxHeight && words.length > 0) {
-    words.pop();
-    truncated = words.join(' ');
-    el.textContent = truncated + '...';
-  }
-
-  el.style.maxHeight = `${maxHeight}px`;
-  el.style.overflowY = el.scrollHeight > maxHeight ? 'auto' : 'hidden';
-  el.style.visibility = 'visible';
-};
-
-export function debouncedClamp() {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(clampArtistBio, 150);
-}
 
 // Album & Track Helpers
 //! ============================================================================
