@@ -23,7 +23,10 @@ body.scroll-lock {
 }
 
 .artist-modal__container {
+  padding: 52px 0px;
   width: 288px;
+  height: 100%;
+  position: relative;
 }
 
 .artist-modal--is-open {
@@ -32,18 +35,16 @@ body.scroll-lock {
 
 .artist-modal__content {
   margin: 0 auto;
-  padding: 52px 0px;
   font-weight: 400;
   font-family: var(--second-family);
   color: var(--color-white);
-  background-color: var(--color-neutral-darkest);
   overflow: hidden;
+  height: 100%;
 }
 
 .artist-modal__body {
   flex: 1;
   overflow-y: auto;
-  position: relative;
   scrollbar-width: thin;
   scrollbar-color: rgba(118, 65, 145, 0.5) transparent;
 }
@@ -64,7 +65,7 @@ body.scroll-lock {
 
 .artist-modal__inner {
   padding: 0 8px;
-  max-height: 83vh;
+  max-height: 90vh;
 }
 
 .artist-modal__close-btn {
@@ -97,14 +98,12 @@ body.scroll-lock {
 
 @media only screen and (min-width: 768px) {
   .artist-modal__container {
+    padding: 64px 0;
     width: 702px;
   }
-  .artist-modal__content {
-    padding: 64px 0;
-  }
+
   .artist-modal__inner {
     padding: 0 24px;
-    max-height: 90vh;
   }
 }
 
@@ -113,9 +112,6 @@ body.scroll-lock {
     width: 1312px;
   }
 
-  .artist-modal__content {
-    padding: 64px 0;
-  }
   .artist-modal__inner {
     padding: 0 64px;
   }
