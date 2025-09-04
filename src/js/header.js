@@ -25,7 +25,7 @@ function openBurgerMenu() {
 
   document.body.style.top = `-${scrollY}px`;
   document.body.classList.add('scroll-lock');
-  refs.burgerMenu.classList.add('--open');
+  refs.burgerMenu.classList.add('open');
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeBurgerMenu();
@@ -40,7 +40,7 @@ function openBurgerMenu() {
 }
 
 function closeBurgerMenu() {
-  refs.burgerMenu.classList.remove('--open');
+  refs.burgerMenu.classList.remove('open');
   document.removeEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeBurgerMenu();
