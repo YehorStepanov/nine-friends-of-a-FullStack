@@ -53,7 +53,7 @@
 }
 
 .about-artist__info-item--bio::-webkit-scrollbar {
-  width: 3%;
+  width: 3px;
 }
 
 .about-artist__info-item--bio::-webkit-scrollbar-track {
