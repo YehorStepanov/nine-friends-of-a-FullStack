@@ -19,6 +19,7 @@ const modalRefs = refs.artistModalElems;
 export async function renderArtistModal(id) {
   openArtistModal();
   showLoader();
+  modalRefs.artistModalInnerEl.innerHTML = '';
 
   try {
     const artistData = await getArtistDataAndAlbums(id);
@@ -28,7 +29,7 @@ export async function renderArtistModal(id) {
     const filteredAlbums = filterAlbums(albumsList, true);
     await createArtistAlbums(filteredAlbums);
   } catch (error) {
-    showErrorMessage(error.message);
+    showErrorMessage(error?.message || 'Failed to load artist data');
   } finally {
     hideLoader();
   }
@@ -40,7 +41,7 @@ export async function renderArtistModal(id) {
 /** Returns markup for artist about section */
 const aboutArtistTemplate = item => {
   const {
-    strArtist,
+    strArtist = 'Unknown artist',
     strArtistThumb,
     intFormedYear,
     intDiedYear = '',
@@ -69,12 +70,13 @@ const aboutArtistTemplate = item => {
                 <h2 id="about-artist-title" class="about-artist__title">${strArtist}</h2>
                 <div class="about-artist__content">
                     <img
-                    src="${strArtistThumb}"
+                    src="${strArtistThumb || 'img/default-artist.png'}"
                     class="about-artist__image"
-                    alt="${strArtist}"
+                    alt="${strArtist || 'Unknown artist'}"
                     loading="lazy"
                     width="272"
                     height="167"
+                    onerror="this.onerror=null;this.src='img/default-artist.png';"
                     />
                     <ul class="about-artist__info-list" role="list">
                         ${artistInfoListMarkUp}
@@ -197,9 +199,14 @@ function setupObserverForLazyLoad(albums, listEl, indexRef) {
 
 /** Creates albums section and initializes lazy load */
 const createArtistAlbums = async albums => {
+  const isAvailableAlbums = albums?.length;
   const markup = `<section class="artist-albums js-artist-modal-albums">
                     <h2 class="artist-albums__title">Albums</h2>
-                    <ul class="artist-albums__list js-artist-albums"></ul>
+                    ${
+                      isAvailableAlbums
+                        ? `<ul class="artist-albums__list js-artist-albums"></ul>`
+                        : `<p class="artist-albums__empty">No albums available</p>`
+                    }
                   </section>`;
 
   modalRefs.artistModalInnerEl.insertAdjacentHTML('beforeend', markup);
