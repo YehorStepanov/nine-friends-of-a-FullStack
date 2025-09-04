@@ -96,6 +96,7 @@
 }
 
 body {
+  font-family: 'IBM Plex Sans Regular', sans-serif;
   display: flex;
   flex-direction: column;
   margin: 0;
