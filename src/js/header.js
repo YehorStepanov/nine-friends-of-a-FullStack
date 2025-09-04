@@ -9,10 +9,11 @@ refs.burgerMenuCloseBtn.addEventListener('click', (e) => {
   closeBurgerMenu();
 });
 
-function burgerNavPressed(e) {
-  if (e.target.classList == 'nav-link-modal') {
+function burgerNavPressed(e) {  
+  if (e.target.classList.contains('nav-link-modal')) {
     closeBurgerMenu();
-    const section = document.querySelector(e.target);
+    const sectionId = e.target.getAttribute('href');    
+    const section = document.querySelector(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }

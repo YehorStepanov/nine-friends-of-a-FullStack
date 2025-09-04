@@ -1,12 +1,13 @@
 .about-artist__title {
+  font-family: 'Epilogue Bold', sans-serif;
   margin-bottom: 16px;
-  font-weight: 700;
   font-size: 20px;
   line-height: 1.3;
   letter-spacing: -0.01em;
   text-align: center;
   color: var(--color-white);
 }
+
 .about-artist__content {
   display: flex;
   flex-direction: column;
@@ -14,6 +15,7 @@
   justify-content: center;
   gap: 32px;
 }
+
 .about-artist__image {
   border-radius: 16px;
   min-width: 272px;
@@ -21,23 +23,26 @@
   object-fit: cover;
   object-position: top center;
 }
+
 .about-artist__info-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-family: var(--font-family);
 }
+
 .about-artist__info-item {
   font-size: 18px;
   line-height: 1.5;
   color: var(--color-white);
   width: 100%;
 }
+
 .about-artist__info-item-title {
-  font-weight: 600;
+  font-family: 'IBM Plex Sans Semi-bold';
 }
+
 .about-artist__info-item-text {
-  font-weight: 400;
+  font-family: 'IBM Plex Sans Regular', sans-serif;
 }
 
 .about-artist__info-item--bio {
@@ -55,12 +60,13 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
 .about-artist__music-genre {
   padding: 4px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
+  font-family: 'IBM Plex Sans Semi-bold', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--color-white);
@@ -96,6 +102,7 @@
     max-width: 50%;
     flex: 0 0 auto;
   }
+
   .about-artist__info-item--bio {
     flex-grow: 2;
     max-height: 135px;
@@ -108,6 +115,7 @@
     align-items: flex-start;
     justify-content: space-between;
   }
+
   .about-artist__image {
     min-width: 576px;
     height: 354px;
@@ -124,6 +132,7 @@
   .about-artist__info-item:nth-child(even):not(.about-artist__info-item--bio) {
     max-width: 50%;
   }
+
   .about-artist__info-item--bio {
     max-height: 162px;
   }
