@@ -41,7 +41,7 @@ export async function renderArtistModal(id) {
 /** Returns markup for artist about section */
 const aboutArtistTemplate = item => {
   const {
-    strArtist = 'Unknown artist',
+    strArtist,
     strArtistThumb,
     intFormedYear,
     intDiedYear = '',
@@ -67,7 +67,9 @@ const aboutArtistTemplate = item => {
   const musicGenresMarkUp = createMusicGenresList(genres);
 
   return `<section class="about-artist js-about-artist" aria-labelledby="about-artist-title">
-                <h2 id="about-artist-title" class="about-artist__title">${strArtist}</h2>
+                <h2 id="about-artist-title" class="about-artist__title">
+                ${strArtist || 'Unknown artist'}
+                </h2>
                 <div class="about-artist__content">
                     <img
                     src="${strArtistThumb || 'img/default-artist.png'}"
@@ -76,7 +78,6 @@ const aboutArtistTemplate = item => {
                     loading="lazy"
                     width="272"
                     height="167"
-                    onerror="this.onerror=null;this.src='img/default-artist.png';"
                     />
                     <ul class="about-artist__info-list" role="list">
                         ${artistInfoListMarkUp}
@@ -121,9 +122,7 @@ const musicGenreTemplate = genre =>
 
 /** Builds genres list markup */
 function createMusicGenresList(items) {
-  const hasGenres = items?.length > 0;
-  const markup = hasGenres ? items.map(musicGenreTemplate).join('\n') : '';
-  return markup;
+  return items?.map(musicGenreTemplate).join('') || '';
 }
 
 // Artist About Section
@@ -133,6 +132,16 @@ function createMusicGenresList(items) {
 const createArtistAbout = artist => {
   const markup = aboutArtistTemplate(artist);
   modalRefs.artistModalInnerEl.insertAdjacentHTML('afterbegin', markup);
+
+  const imgEl = modalRefs.artistModalInnerEl.querySelector(
+    '.about-artist__image'
+  );
+  imgEl.addEventListener('error', () => {
+    if (!imgEl.dataset.errorHandled) {
+      imgEl.src = 'img/default-artist.png';
+      imgEl.dataset.errorHandled = 'true';
+    }
+  });
 };
 
 // Artist Albums Lazy Load
@@ -148,11 +157,9 @@ function renderAlbumBatch(albums, listEl, indexRef) {
   const fragment = document.createDocumentFragment();
 
   nextBatch.forEach(album => {
-    const tempEl = document.createElement('div');
-    tempEl.innerHTML = artistAlbumItemTemplate(album);
-    const albumEl = tempEl.firstElementChild;
-
+    const albumEl = document.createElement('li');
     albumEl.classList.add('artist-album');
+    albumEl.innerHTML = artistAlbumItemTemplate(album);
     fragment.appendChild(albumEl);
   });
 
@@ -175,6 +182,8 @@ function renderAlbumBatch(albums, listEl, indexRef) {
 
 /** Sets up IntersectionObserver for lazy loading albums */
 function setupObserverForLazyLoad(albums, listEl, indexRef) {
+  if (!albums?.length || !listEl) return;
+
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -213,8 +222,10 @@ const createArtistAlbums = async albums => {
 
   const listEl =
     modalRefs.artistModalInnerEl.querySelector('.js-artist-albums');
+  if (!listEl) {
+    return;
+  }
   const indexRef = { current: 0 };
-
   setupObserverForLazyLoad(albums, listEl, indexRef);
 };
 
@@ -223,8 +234,7 @@ function artistAlbumItemTemplate(album) {
   const { strAlbum = '', tracks } = album;
   const tracksList = tracks?.length > 0 ? tracksTemplate(tracks) : '';
 
-  return `<li class="artist-album">
-            <h3 class="artist-album__title">${strAlbum}</h3>
+  return `<h3 class="artist-album__title">${strAlbum}</h3>
             <div class="artist-album__tracks">
               <ul class="artist-tracks__header">
                 <li class="artist-tracks__header-item header-track">Track</li>
@@ -235,7 +245,7 @@ function artistAlbumItemTemplate(album) {
                 ${tracksList}
               </ul>
             </div>
-          </li>`;
+          `;
 }
 
 // Artist Album Tracks
