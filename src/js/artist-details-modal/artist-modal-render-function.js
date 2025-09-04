@@ -26,7 +26,7 @@ export async function renderArtistModal(id) {
 
     createArtistAbout(artistData);
     const filteredAlbums = filterAlbums(albumsList, true);
-    createArtistAlbums(filteredAlbums);
+    await createArtistAlbums(filteredAlbums);
   } catch (error) {
     showErrorMessage(error.message);
   } finally {
@@ -65,18 +65,21 @@ const aboutArtistTemplate = item => {
   const artistInfoListMarkUp = createArtistInfoList(artistInfoList);
   const musicGenresMarkUp = createMusicGenresList(genres);
 
-  return `<section class="about-artist js-about-artist">
-                <h2 class="about-artist__title">${strArtist}</h2>
+  return `<section class="about-artist js-about-artist" aria-labelledby="about-artist-title">
+                <h2 id="about-artist-title" class="about-artist__title">${strArtist}</h2>
                 <div class="about-artist__content">
                     <img
                     src="${strArtistThumb}"
                     class="about-artist__image"
                     alt="${strArtist}"
+                    loading="lazy"
+                    width="272"
+                    height="167"
                     />
-                    <ul class="about-artist__info-list">
+                    <ul class="about-artist__info-list" role="list">
                         ${artistInfoListMarkUp}
                         <li class="about-artist__info-item--genres">
-                          <ul class="about-artist__music-genres">
+                          <ul class="about-artist__music-genres" role="list" aria-label="Music genres">
                              ${musicGenresMarkUp}
                           </ul>
                         </li>
@@ -130,31 +133,83 @@ const createArtistAbout = artist => {
   modalRefs.artistModalInnerEl.insertAdjacentHTML('afterbegin', markup);
 };
 
-// Artist Albums
+// Artist Albums Lazy Load
 //! ============================================================================
 
-/** Inserts artist albums section into modal */
-const createArtistAlbums = artist => {
-  const markup = artistAlbumListTemplate(artist);
+/** Renders next batch of albums with fade-in */
+function renderAlbumBatch(albums, listEl, indexRef) {
+  const ALBUMS_BATCH_SIZE = 5;
+  const ALBUM_FADE_DELAY = 100;
+
+  const startIndex = indexRef.current;
+  const nextBatch = albums.slice(startIndex, startIndex + ALBUMS_BATCH_SIZE);
+  const fragment = document.createDocumentFragment();
+
+  nextBatch.forEach(album => {
+    const tempEl = document.createElement('div');
+    tempEl.innerHTML = artistAlbumItemTemplate(album);
+    const albumEl = tempEl.firstElementChild;
+
+    albumEl.classList.add('artist-album');
+    fragment.appendChild(albumEl);
+  });
+
+  listEl.appendChild(fragment);
+
+  requestAnimationFrame(() => {
+    nextBatch.forEach((_, i) => {
+      const albumEl = listEl.children[startIndex + i];
+      if (albumEl) {
+        setTimeout(() => {
+          albumEl.classList.add('artist-album--visible');
+        }, i * ALBUM_FADE_DELAY);
+      }
+    });
+  });
+
+  indexRef.current += ALBUMS_BATCH_SIZE;
+  return listEl.lastElementChild;
+}
+
+/** Sets up IntersectionObserver for lazy loading albums */
+function setupObserverForLazyLoad(albums, listEl, indexRef) {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          const lastAlbum = renderAlbumBatch(albums, listEl, indexRef);
+
+          if (indexRef.current < albums.length && lastAlbum) {
+            observer.observe(lastAlbum);
+          }
+        }
+      });
+    },
+    { root: null, rootMargin: '0px', threshold: 0.5 }
+  );
+
+  const firstLastAlbum = renderAlbumBatch(albums, listEl, indexRef);
+  if (firstLastAlbum && indexRef.current < albums.length) {
+    observer.observe(firstLastAlbum);
+  }
+}
+
+/** Creates albums section and initializes lazy load */
+const createArtistAlbums = async albums => {
+  const markup = `<section class="artist-albums js-artist-modal-albums">
+                    <h2 class="artist-albums__title">Albums</h2>
+                    <ul class="artist-albums__list js-artist-albums"></ul>
+                  </section>`;
+
   modalRefs.artistModalInnerEl.insertAdjacentHTML('beforeend', markup);
+
+  const listEl =
+    modalRefs.artistModalInnerEl.querySelector('.js-artist-albums');
+  const indexRef = { current: 0 };
+
+  setupObserverForLazyLoad(albums, listEl, indexRef);
 };
-
-/** Returns albums section markup */
-function artistAlbumListTemplate(items) {
-  const albumsList = artistAlbumsTemplate(items);
-
-  return `<section class="artist-albums js-artist-modal-albums">
-            <h2 class="artist-albums__title">Albums</h2>
-            <ul class="artist-albums__list js-artist-albums">
-              ${albumsList}
-            </ul>
-          </section>`;
-}
-
-/** Builds albums list markup */
-function artistAlbumsTemplate(albums) {
-  return albums.map(artistAlbumItemTemplate).join('\n');
-}
 
 /** Returns markup for one album */
 function artistAlbumItemTemplate(album) {
@@ -182,7 +237,7 @@ function artistAlbumItemTemplate(album) {
 /** Returns markup for one track */
 function artistAlbumTrackTemplate(item) {
   const { strTrack, intDuration, movie } = item;
-  const movieMarkUp = movieTemplate(movie);
+  const movieMarkUp = movieTemplate(movie, strTrack);
   const duration = convertTrackDuration(intDuration);
 
   return `<li class="artist-tracks__item">
@@ -201,10 +256,11 @@ function tracksTemplate(items) {
 //! ============================================================================
 
 /** Returns YouTube link markup if valid */
-function movieTemplate(movie) {
+function movieTemplate(movie, strTrack) {
   if (!isValidLink(movie)) return '';
 
-  const markup = `<a href="${movie}" target="_blank" rel="noopener noreferrer" class="artist-tracks__item-link">
+  const markup = `<a href="${movie}" target="_blank" rel="noopener noreferrer" 
+                    class="artist-tracks__item-link" aria-label="Watch ${strTrack} on YouTube">
                           <svg class="artist-tracks__item-icon" width="21" height="15">
                             <use href="${sprite}#icon-Youtube"></use>
                           </svg>
