@@ -17,8 +17,7 @@
 }
 
 .hero-title {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
+  font-family: 'Epilogue Bold', sans-serif;
   font-size: 48px;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -27,8 +26,7 @@
 }
 
 .hero-subtitle {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'IBM Plex Sans Regular', sans-serif;
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
@@ -40,8 +38,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'IBM Plex Sans Medium', sans-serif;
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
@@ -88,6 +85,7 @@
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%);
   pointer-events: none;
 }
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -116,14 +114,17 @@
   pointer-events: none;
   z-index: 2;
 }
+
 .hero-title {
-    margin-top: 0;
+  margin-top: 0;
 }
+
 /* Tablet*/
 @media (min-width: 768px) and (max-width: 1439px) {
   .hero-section {
     margin-top: 72px;
   }
+
   .hero-btn {
     width: 246px;
     padding: 10px 44px;
@@ -140,14 +141,17 @@
     max-width: 620px;
     margin: 24px 0 32px;
   }
+
   .hero-section::before {
     height: 125px;
   }
+
   .hero-content {
-      padding-top: 32px;
-      padding-bottom: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
-  .hero-title{
+
+  .hero-title {
     margin-top: 0;
   }
 }
@@ -157,6 +161,7 @@
   .hero-section {
     margin-top: 72px;
   }
+
   .hero-container {
     display: flex;
     justify-content: space-between;
@@ -191,6 +196,7 @@
     width: 641px;
     height: auto;
   }
+
   .hero-picture::before {
     content: '';
     position: absolute;
@@ -202,6 +208,7 @@
     z-index: 2;
     pointer-events: none;
   }
+
   .hero-section::before {
     height: 80px;
   }
