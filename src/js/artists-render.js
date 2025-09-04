@@ -9,7 +9,6 @@ import placeholder_img from '../img/placeholder-img.webp';
 // !============================================================================
 
 const ITEMS_PER_PAGE = 8;
-refs.artistsList.innerHTML = renderSkeletons(ITEMS_PER_PAGE);
 
 function renderSkeletons(count = ITEMS_PER_PAGE) {
   return new Array(count)
@@ -35,6 +34,8 @@ function renderSkeletons(count = ITEMS_PER_PAGE) {
 // !============================================================================
 async function createArtistsList(page) {
   try {
+    refs.artistsList.innerHTML = renderSkeletons(ITEMS_PER_PAGE);
+
     const data = await getArtistsList(page);
 
     const markup = data.artists

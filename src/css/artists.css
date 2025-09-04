@@ -191,7 +191,7 @@
   .artists__list {
     flex-direction: row;
     flex-wrap: wrap;
-    min-height: calc(4 * 593px + 7 * 32px);
+    min-height: calc(4 * 593px + 4 * 32px);
   }
 
   .artists__image {
