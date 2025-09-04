@@ -143,7 +143,7 @@
 .form-field-star {
   display: flex;
   justify-content: left;
-  align-items: left;
+  align-items: center;
 }
 
 .feedback-modal__rating {
@@ -370,22 +370,22 @@
   pointer-events: none !important;
 }
 
-.iziToast-wrapper.iziToast-wrapper-bottomCenter>div {
+.iziToast-wrapper.iziToast-wrapper-bottomCenter > div {
   pointer-events: all !important;
 }
 
 /* Переопределение стилей, которые мешают центрированию */
-.iziToast.iziToast-center-text>.iziToast-body .iziToast-texts {
+.iziToast.iziToast-center-text > .iziToast-body .iziToast-texts {
   margin: 0 !important;
   line-height: 1.5 !important;
   letter-spacing: 0.03em !important;
 }
 
-.iziToast.iziToast-center-text>.iziToast-body .iziToast-title {
+.iziToast.iziToast-center-text > .iziToast-body .iziToast-title {
   margin-right: 0 !important;
   font-weight: 700 !important;
 }
 
-.iziToast.iziToast-center-text>.iziToast-body .iziToast-message {
+.iziToast.iziToast-center-text > .iziToast-body .iziToast-message {
   margin: 0 !important;
 }
