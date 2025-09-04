@@ -97,6 +97,10 @@ async function initPagination() {
     await createArtistsList(currentPage);
 
     replaceMoveButtons();
+
+    const top =
+      refs.artistsList.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
 }
 initPagination();
