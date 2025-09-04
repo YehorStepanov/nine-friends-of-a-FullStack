@@ -47,6 +47,7 @@ body.scroll-lock {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(118, 65, 145, 0.5) transparent;
+  height: 100%;
 }
 
 .artist-modal__body::-webkit-scrollbar {
