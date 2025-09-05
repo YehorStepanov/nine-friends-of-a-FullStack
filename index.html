@@ -287,250 +287,256 @@ main:has(.back-link) {
 }
 /* Sections style */
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .section-feedbacks {
-    background-color: var(--color-neutral-darkest);
-    padding-top: 64px;
-    padding-bottom: 64px;
+  background-color: var(--color-neutral-darkest);
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.artists__loader {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .swiper .swiper-wrapper {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 .swiper .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 866px;
-    height: 235px;
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 16px;
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 866px;
+  height: 235px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 16px;
 }
 .feedback-content {
-    font-family: 'Epilogue Bold', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    text-align: center;
-    color: var(--color-white);
-    margin-bottom: 32px;
+  font-family: 'Epilogue Bold', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 32px;
 }
 .feedback-name {
-    font-family: 'IBM Plex Sans Semi-bold', sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--color-white);
+  font-family: 'IBM Plex Sans Semi-bold', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-white);
 }
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .stars {
-    background-color: transparent;
-    width: 116px;
-    height: 20px;
-    margin: 0 auto 32px auto;
-    display: flex;
-    flex-direction: row;
+  background-color: transparent;
+  width: 116px;
+  height: 20px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: row;
 }
 .swiper .swiper-pagination-bullet-active {
-    background-color: var(--color-white);
+  background-color: var(--color-white);
 }
 .swiper .swiper-pagination-bullet-active-prev,
 .swiper .swiper-pagination-bullet-active-next {
-    background-color: var(--color-neutral-light);
+  background-color: var(--color-neutral-light);
 }
 .swiper .swiper-button-prev,
 .swiper .swiper-button-next {
-    display: none;
+  display: none;
 }
 .swiper-pagination .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
-    background-color: var(--color-neutral-light);
-    cursor: pointer;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--color-neutral-light);
+  cursor: pointer;
 }
 .swiper-pagination .swiper-pagination-bullet.active {
-    background-color: var(--color-white);
-    opacity: 0.8;
+  background-color: var(--color-white);
+  opacity: 0.8;
 }
 /* feedback-modal-btn*/
 .btn-feedback {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background: var(--color-affair);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'IBM Plex Sans Medium', sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+}
+.btn-feedback:hover,
+.btn-feedback:focus {
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background: var(--color-affair);
+  opacity: 0.6;
+}
+@media screen and (min-width: 768px) {
+  .btn-feedback {
     border-radius: 12px;
     padding: 10px 24px;
-    width: 288px;
+    width: 158px;
     height: 47px;
     box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-        inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-        inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-        inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-        inset 0 32px 24px 0 var(--opacity-white-5);
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 32px 24px 0 var(--opacity-white-5);
     background: var(--color-affair);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'IBM Plex Sans Medium', sans-serif;
+    white-space: nowrap;
     font-size: 18px;
     line-height: 150%;
     color: var(--color-white);
-    border: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    margin: 0 auto;
-    transition: all 0.2s ease;
-    margin-top: 16px;
-}
-.btn-feedback:hover,
-.btn-feedback:focus {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-        inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-        inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-        inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-        inset 0 32px 24px 0 var(--opacity-white-5);
-    background: var(--color-affair);
-    opacity: 0.6;
-}
-@media screen and (min-width: 768px) {
-    .btn-feedback {
-        border-radius: 12px;
-        padding: 10px 24px;
-        width: 158px;
-        height: 47px;
-        box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-            inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-            inset 0 32px 24px 0 var(--opacity-white-5);
-        background: var(--color-affair);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        white-space: nowrap;
-        font-size: 18px;
-        line-height: 150%;
-        color: var(--color-white);
-    }
+  }
 
-    .section-feedbacks {
-        background-color: var(--color-neutral-darkest);
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
+  .section-feedbacks {
+    background-color: var(--color-neutral-darkest);
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 
-    .swiper .swiper-slide {
-        padding: 50px 93px 59px 93px;
-    }
+  .swiper .swiper-slide {
+    padding: 50px 93px 59px 93px;
+  }
 
-    .feedback-content {
-        font-size: 26px;
-    }
+  .feedback-content {
+    font-size: 26px;
+  }
 
-    .swiper .swiper-button-prev,
-    .swiper .swiper-button-next {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 8px;
-        padding: 12px;
-        width: 48px;
-        height: 48px;
-        background-color: var(--color-neutral-darkest);
-        top: var(--swiper-navigation-top-offset, 50%);
-        transition: border 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+  .swiper .swiper-button-prev,
+  .swiper .swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-neutral-darkest);
+    top: var(--swiper-navigation-top-offset, 50%);
+    transition: border 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 
-    .swiper .swiper-button-prev:focus,
-    .swiper .swiper-button-next:focus,
-    .swiper .swiper-button-prev:hover,
-    .swiper .swiper-button-next:hover {
-        border-color: var(--color-affair);
-    }
+  .swiper .swiper-button-prev:focus,
+  .swiper .swiper-button-next:focus,
+  .swiper .swiper-button-prev:hover,
+  .swiper .swiper-button-next:hover {
+    border-color: var(--color-affair);
+  }
 
-    .icon-arrow {
-        background-color: transparent;
-        fill: var(--color-white);
-        transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+  .icon-arrow {
+    background-color: transparent;
+    fill: var(--color-white);
+    transition: fill 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 
-    .swiper-button-prev:focus svg,
-    .swiper-button-next:focus svg,
-    .swiper-button-prev:hover svg,
-    .swiper-button-next:hover svg {
-        fill: var(--color-affair);
-    }
+  .swiper-button-prev:focus svg,
+  .swiper-button-next:focus svg,
+  .swiper-button-prev:hover svg,
+  .swiper-button-next:hover svg {
+    fill: var(--color-affair);
+  }
 
-    .swiper .swiper-button-next:after,
-    .swiper .swiper-rtl .swiper-button-prev:after,
-    .swiper .swiper-button-prev:after,
-    .swiper .swiper-rtl .swiper-button-next:after {
-        content: '';
-    }
+  .swiper .swiper-button-next:after,
+  .swiper .swiper-rtl .swiper-button-prev:after,
+  .swiper .swiper-button-prev:after,
+  .swiper .swiper-rtl .swiper-button-next:after {
+    content: '';
+  }
 }
 @media screen and (min-width: 1440px) {
-    .section-feedbacks {
-        background-color: var(--color-neutral-darkest);
-        padding-top: 112px;
-        padding-bottom: 112px;
-    }
+  .section-feedbacks {
+    background-color: var(--color-neutral-darkest);
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
 
-    .swiper .swiper-wrapper {
-        margin-bottom: 50px;
-    }
+  .swiper .swiper-wrapper {
+    margin-bottom: 50px;
+  }
 
-    .swiper .swiper-slide {
-        padding: 50px 223px 59px 223px;
-    }
+  .swiper .swiper-slide {
+    padding: 50px 223px 59px 223px;
+  }
 
-    .feedback-content {
-        font-size: 32px;
-        line-height: 1.3;
-    }
+  .feedback-content {
+    font-size: 32px;
+    line-height: 1.3;
+  }
 
-    .swiper .swiper-button-prev,
-    .swiper .swiper-button-next {
-        top: var(--swiper-navigation-top-offset, 27%);
-    }
+  .swiper .swiper-button-prev,
+  .swiper .swiper-button-next {
+    top: var(--swiper-navigation-top-offset, 27%);
+  }
 
-    .btn-feedback {
-        border-radius: 12px;
-        padding: 10px 24px;
-        width: 177px;
-        height: 47px;
-        box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-            inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-            inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-            inset 0 32px 24px 0 var(--opacity-white-5);
-        background: var(--color-affair);
-        font-size: 18px;
-        line-height: 150%;
-        color: var(--color-white);
-        margin-top: 80px;
-    }
+  .btn-feedback {
+    border-radius: 12px;
+    padding: 10px 24px;
+    width: 177px;
+    height: 47px;
+    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 32px 24px 0 var(--opacity-white-5);
+    background: var(--color-affair);
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-white);
+    margin-top: 80px;
+  }
 }
 /* Base*/
 .hero-section {
@@ -575,8 +581,9 @@ main:has(.back-link) {
   text-decoration: none;
   padding: 10px 24px;
   width: auto;
-  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background: #764191;
   border-radius: 12px;
@@ -599,6 +606,7 @@ main:has(.back-link) {
   position: relative;
   display: block;
   width: 100%;
+  min-height: 396px;
 }
 .hero-picture::after {
   content: '';
@@ -674,6 +682,10 @@ main:has(.back-link) {
   .hero-title {
     margin-top: 0;
   }
+
+  .hero-picture {
+    min-height: 632px;
+  }
 }
 /* Dekstop */
 @media (min-width: 1440px) {
@@ -708,6 +720,7 @@ main:has(.back-link) {
   .hero-picture {
     display: block;
     width: 641px;
+    min-height: 900px;
   }
 
   .hero-picture img {
@@ -862,6 +875,7 @@ main:has(.back-link) {
   background-color: var(--color-neutral-darkest);
   color: var(--color-scheme-1-text);
   padding: 64px 0;
+  min-height: 200px;
 }
 .artists__title {
   font-family: 'IBM Plex Sans Semi-bold', sans-serif;
@@ -876,18 +890,13 @@ main:has(.back-link) {
   letter-spacing: -0.01em;
   margin-bottom: 32px;
 }
-.artists__loader {
-  max-width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
 /* *TITLES END */
 /* !ARTISTS LIST */
 .artists__list {
   display: flex;
   flex-direction: column;
   gap: 64px;
+  min-height: calc(8 * 400px + 7 * 64px);
 }
 .artists__item {
   width: 100%;
@@ -899,6 +908,56 @@ main:has(.back-link) {
   border-radius: 16px;
   object-fit: cover;
   object-position: top;
+}
+.artists__item--skeleton {
+  pointer-events: none;
+  gap: 64px;
+}
+.skeleton-image {
+  width: 100%;
+  height: 177px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s linear infinite;
+}
+.skeleton-genre {
+  width: 80px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.skeleton-title {
+  width: 50%;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+.skeleton-text {
+  width: 100%;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+}
+.skeleton-btn {
+  width: 125px;
+  height: 27px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 .artists__genre-list {
   display: flex;
@@ -964,6 +1023,13 @@ main:has(.back-link) {
   }
   .artists__list {
     gap: 32px;
+    min-height: calc(8 * 655px + 7 * 32px);
+  }
+  .artists__item--skeleton {
+    gap: 32px;
+  }
+  .skeleton-image {
+    height: 432px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -974,9 +1040,14 @@ main:has(.back-link) {
   .artists__list {
     flex-direction: row;
     flex-wrap: wrap;
+    min-height: calc(4 * 593px + 4 * 32px);
   }
 
   .artists__image {
+    height: 393px;
+  }
+
+  .skeleton-image {
     height: 393px;
   }
 
@@ -1625,6 +1696,7 @@ body.scroll-lock {
 .aboutUs-section {
   background-color: var(--color-neutral-darkest);
   padding: 64px 0;
+  min-height: 692px;
 }
 .aboutUs-container {
   display: flex;
@@ -1635,6 +1707,7 @@ body.scroll-lock {
 .aboutUs-img {
   width: 100%;
   border-radius: 16px;
+  min-height: 169px;
 }
 .aboutUs-content {
   display: flex;
@@ -1680,6 +1753,10 @@ body.scroll-lock {
   .aboutUs-icon {
     margin-bottom: 24px;
   }
+
+  .aboutUs-img {
+    min-height: 414px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .aboutUs-container {
@@ -1710,6 +1787,10 @@ body.scroll-lock {
 
   .aboutUs-section {
     padding: 112px 0;
+  }
+
+  .aboutUs-img {
+    min-height: 666px;
   }
 }
 /*MODAL*/
@@ -2321,10 +2402,96 @@ body.scroll-lock {
   <div class="container">
     <h2 class="artists__title">Artists</h2>
     <p class="artists__sub-title">Explore Your New Favorite Artists</p>
-    <ul class="artists__list js-artists-list"></ul>
-    <div class="artists__loader">
-      <span id="artists__loader" class="loader"></span>
-    </div>
+    <ul class="artists__list js-artists-list">
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+      <li class="artists__item artists__item--skeleton">
+        <div class="skeleton-image" aria-hidden="true"></div>
+        <ul class="artists__genre-list">
+          <li class="artists__genre-item skeleton-genre"></li>
+          <li class="artists__genre-item skeleton-genre"></li>
+        </ul>
+        <h3 class="artists__title-name skeleton-title"></h3>
+        <p class="artists__text-biography skeleton-text"></p>
+
+        <div class="skeleton-btn" aria-hidden="true"></div>
+      </li>
+    </ul>
     <div id="pagination" class="tui-pagination"></div>
   </div>
 </section>
@@ -2348,6 +2515,7 @@ body.scroll-lock {
         class="aboutUs-img"
         src="/nine-friends-of-a-FullStack/assets/team-mob-1x-DAMpmr5y.webp"
         alt="Our team at ArtistsHub"
+        loading="lazy"
       />
     </picture>
 
