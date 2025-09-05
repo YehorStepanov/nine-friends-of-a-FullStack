@@ -4,13 +4,40 @@ import { getArtistsList } from './site-api';
 import refs from './refs';
 import Pagination from 'tui-pagination';
 import sprite from '../img/sprite.svg';
-import { showLoader, hideLoader } from './loader';
 import placeholder_img from '../img/placeholder-img.webp';
 
+// !============================================================================
+
+const ITEMS_PER_PAGE = 8;
+
+function renderSkeletons(count = ITEMS_PER_PAGE) {
+  return new Array(count)
+    .fill(0)
+    .map(
+      () => `
+          <li class="artists__item artists__item--skeleton">
+            <div class="skeleton-image" aria-hidden="true"></div>
+            <ul class="artists__genre-list">
+              <li class="artists__genre-item skeleton-genre"></li>
+              <li class="artists__genre-item skeleton-genre"></li>
+            </ul>
+            <h3 class="artists__title-name skeleton-title"></h3>
+            <p class="artists__text-biography skeleton-text"></p>
+
+            <div class="skeleton-btn" aria-hidden="true"></div>
+          </li>
+        `
+    )
+    .join('');
+}
+
+// !============================================================================
 async function createArtistsList(page) {
   try {
+    refs.artistsList.innerHTML = renderSkeletons(ITEMS_PER_PAGE);
+
     const data = await getArtistsList(page);
-    showLoader('artists__loader');
+
     const markup = data.artists
       .map(
         item => `
@@ -40,14 +67,16 @@ async function createArtistsList(page) {
       .join('');
 
     refs.artistsList.innerHTML = markup;
-    hideLoader('artists__loader');
     return data;
   } catch (error) {
-    hideLoader('artists__loader');
     console.error('Error in createArtistsList:', error);
+
+    refs.artistsList.innerHTML = '';
+    throw error;
   }
 }
 
+// !============================================================================
 const paginationEl = document.getElementById('pagination');
 let pagination = null;
 
@@ -93,7 +122,6 @@ async function initPagination() {
 
   pagination.on('afterMove', async event => {
     const currentPage = event.page;
-    showLoader('artists__loader');
     await createArtistsList(currentPage);
 
     replaceMoveButtons();
@@ -103,4 +131,6 @@ async function initPagination() {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 }
+
+// !============================================================================
 initPagination();

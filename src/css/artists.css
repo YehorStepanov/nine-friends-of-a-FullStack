@@ -3,6 +3,7 @@
   background-color: var(--color-neutral-darkest);
   color: var(--color-scheme-1-text);
   padding: 64px 0;
+  min-height: 200px;
 }
 
 .artists__title {
@@ -20,13 +21,6 @@
   margin-bottom: 32px;
 }
 
-.artists__loader {
-  max-width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
-
 /* *TITLES END */
 
 /* !ARTISTS LIST */
@@ -34,6 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
+  min-height: calc(8 * 400px + 7 * 64px);
 }
 
 .artists__item {
@@ -47,6 +42,63 @@
   border-radius: 16px;
   object-fit: cover;
   object-position: top;
+}
+
+.artists__item--skeleton {
+  pointer-events: none;
+  gap: 64px;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 177px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s linear infinite;
+}
+
+.skeleton-genre {
+  width: 80px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.skeleton-title {
+  width: 50%;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+}
+
+.skeleton-btn {
+  width: 125px;
+  height: 27px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .artists__genre-list {
@@ -121,6 +173,13 @@
   }
   .artists__list {
     gap: 32px;
+    min-height: calc(8 * 655px + 7 * 32px);
+  }
+  .artists__item--skeleton {
+    gap: 32px;
+  }
+  .skeleton-image {
+    height: 432px;
   }
 }
 
@@ -132,9 +191,14 @@
   .artists__list {
     flex-direction: row;
     flex-wrap: wrap;
+    min-height: calc(4 * 593px + 4 * 32px);
   }
 
   .artists__image {
+    height: 393px;
+  }
+
+  .skeleton-image {
     height: 393px;
   }
 
